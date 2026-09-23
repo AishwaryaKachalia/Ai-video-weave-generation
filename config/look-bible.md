@@ -77,32 +77,38 @@ paparazzi/CCTV street-style rather than Look A's moody handheld editorial.
   capitals, sandstone/brick tones, parked cars at the curb. Architecture
   inspiration only — no readable signage, text, or brand names anywhere in
   frame (the mood reference includes a real store's signage; omit it).
-- **Wardrobe**: maroon/burgundy full-sleeve collared shirt in **linen** (not
-  satin/silk — natural linen texture and creasing, matte not glossy), tucked
-  into Wrap Trouser Beige (`Wrap Trouser Beige.png`) — exact front wrap panel
-  and button waistband shape unchanged, but the fabric reads as a **flowy
+- **Wardrobe**: brown ruched bandeau-style top (`style-refs/top-brown-ruched-bandeau.png`)
+  — sweetheart neckline, thin straps, ruched draped fabric, sleeveless —
+  worn with Wrap Trouser Beige (`Wrap Trouser Beige.png`) — exact front wrap
+  panel and button waistband shape unchanged, fabric reads as a **flowy
   nylon-blend drape**, not stiff structured cotton — soft movement in the
   wrap panel and hem, slight natural sheen. **No belt** — this garment has no
-  belt loops, so nothing sits at the waist over the shirt. Chic minimal
-  styling overall (not overly polished/red-carpet). Footwear: simple black
-  leather flat loafers or mules — not heeled ankle boots, which read wrong
-  with this silhouette. Delicate gold jewelry, hair down.
-- **Props**: a to-go coffee cup in one hand; a black structured handbag in
+  belt loops, so nothing sits at the waist. Chic, aesthetic, elevated styling
+  (not overly polished/red-carpet, but not plain either). Footwear: **brown
+  boots** (ankle or knee-high leather boots, not black). Delicate gold
+  jewelry, hair down.
+- **Model**: fair-toned Indian skin tone, dark hair, warm brown eyes, defined
+  features, gold hoop earrings — face styled in the spirit of
+  `style-refs/face-ref-fair-toned.webp` (similar look/coloring/features, not
+  a literal copy of that specific person).
+- **Props**: a to-go coffee cup in one hand; a brown structured handbag in
   the other is optional (present in the source video — include it only if
-  it reads clean in frame).
+  it reads clean in frame; keep bag color coordinated with the boots, not
+  black).
 - **Lighting/grade**: natural daylight, soft realistic contrast, true color —
   explicitly avoid golden/amber AI-glow grading. Not the teal-shadow grade
   of Look A either.
 - **Duration / aspect ratio**: 9:16 vertical, ~10-11s total (match reference).
-- **Things to avoid**: any belt or belt loops on the trousers, heeled boots,
-  satin/glossy shirt fabric, stiff/structured trouser drape, golden
-  cinematic AI glow, readable signage/brand text/logos, movie-poster or
-  dense-text backdrops, over-sharpened CGI look.
+- **Things to avoid**: any belt or belt loops on the trousers, black boots,
+  stiff/structured trouser drape, golden cinematic AI glow, readable
+  signage/brand text/logos, movie-poster or dense-text backdrops,
+  over-sharpened CGI look.
 
 ### Consistency anchors (Look B only)
 
-- "Indian model, South Bombay street-style, realistic shot-on-iPhone candid photo, not a cinematic AI render"
-- "linen maroon shirt (matte, not satin) tucked into Wrap Trouser Beige — exact wrap panel and button waistband shape unchanged, flowy nylon-blend drape, no belt, no belt loops"
+- "Indian model, fair-toned skin, dark hair, South Bombay street-style, realistic shot-on-iPhone candid photo, not a cinematic AI render"
+- "brown ruched bandeau top tucked into Wrap Trouser Beige — exact wrap panel and button waistband shape unchanged, flowy nylon-blend drape, no belt, no belt loops"
+- "brown leather boots"
 - "black leather flat loafers, not heeled boots"
 - "fixed top-down overhead angle, matching the reference video framing exactly"
 - "South Bombay Fort/Kala Ghoda heritage stone building, arches and columns, no readable signage or text"
