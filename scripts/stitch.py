@@ -59,21 +59,26 @@ def probe_duration(path: Path) -> float:
 
 
 def normalize_and_trim(shots: list[dict], clip_paths: list[Path], tmp_dir: Path, punch_in: bool = False) -> list[Path]:
-    vf = (
-        f"scale={TARGET_WIDTH}:{TARGET_HEIGHT}:force_original_aspect_ratio=decrease,"
-        f"pad={TARGET_WIDTH}:{TARGET_HEIGHT}:(ow-iw)/2:(oh-ih)/2,fps={TARGET_FPS}"
-    )
-    if punch_in:
-        # Slow constant zoom-in on every clip so held/near-static shots still
-        # carry motion energy, instead of reading as a frozen frame.
-        vf += (
-            f",zoompan=z='min(zoom+{PUNCH_IN_RATE},{PUNCH_IN_MAX})':d=1"
-            f":x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s={TARGET_WIDTH}x{TARGET_HEIGHT}"
-        )
     out_paths = []
     for i, (shot, src) in enumerate(zip(shots, clip_paths)):
         dst = tmp_dir / f"{i:03d}-{shot['id']}.mp4"
         start_s = shot.get("start_s", 0)
+        zoom = shot.get("zoom", 1.0)
+        # "increase"+crop fills the frame (no letterbox bars) so a punched-in
+        # zoom variant of the same clip reads as a distinct tighter framing,
+        # not a repeat of the wide pass.
+        vf = (
+            f"scale={TARGET_WIDTH}:{TARGET_HEIGHT}:force_original_aspect_ratio=increase,"
+            f"crop={TARGET_WIDTH}:{TARGET_HEIGHT},fps={TARGET_FPS}"
+        )
+        if punch_in:
+            # Slow constant zoom-in from this shot's base zoom level, so held/
+            # near-static shots still carry motion energy.
+            zoom_max = zoom * PUNCH_IN_MAX
+            vf += (
+                f",zoompan=z='if(eq(on,0),{zoom},min(zoom+{PUNCH_IN_RATE},{zoom_max}))':d=1"
+                f":x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s={TARGET_WIDTH}x{TARGET_HEIGHT}"
+            )
         cmd = ["ffmpeg", "-y"]
         if start_s:
             cmd += ["-ss", str(start_s)]
