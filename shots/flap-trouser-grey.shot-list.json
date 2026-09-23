@@ -12,15 +12,6 @@
       "transition_in": "cut"
     },
     {
-      "id": "wide-walk",
-      "order": 2,
-      "description": "Wide shot, full body, walking away from camera down a Mumbai street past an old hoarding, trousers' asymmetric drape swinging with her stride.",
-      "camera": "Handheld, wide, tracking from behind",
-      "prompt": "Same Indian woman as the reference hero image — same face, hairstyle, olive ruched sleeveless top, and EXACTLY the grey pinstripe flap trousers with the asymmetric drape panel and BB waistband tab shown in the reference product image, unchanged. Wide shot, full body, walking away from camera down a worn Mumbai street past an old hoarding, the trousers' drape panel swinging with her stride, black leather block-heel ankle boots. Moody urban editorial street-fashion photograph, desaturated teal-green shadows, warm golden tones, shallow depth of field, handheld feel, subtle film grain, photographic skin texture. Vertical 9:16.",
-      "duration_s": 0.9,
-      "transition_in": "cut"
-    },
-    {
       "id": "traffic-light-macro",
       "order": 3,
       "description": "Macro insert, Indian street traffic signal with green arrow lit — environmental B-roll, no model.",
