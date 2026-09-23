@@ -48,15 +48,6 @@
       "transition_in": "cut"
     },
     {
-      "id": "eyes-close-macro",
-      "order": 7,
-      "description": "Extreme close-up beauty shot, eyes closed, warm light on skin, natural texture detail.",
-      "camera": "Macro",
-      "prompt": "Same Indian woman as the reference hero image — same face and skin tone. Extreme close-up beauty macro shot, eyes closed, warm golden light raking across the skin, visible natural pores and fine texture, soft realistic shadows, not airbrushed or smoothed. Editorial fashion film insert, desaturated teal-warm grade, subtle film grain. Vertical 9:16.",
-      "duration_s": 1.9,
-      "transition_in": "cut"
-    },
-    {
       "id": "reflection-glass",
       "order": 8,
       "description": "Reflection of the model in a glass/metal door, teal-toned reflection, looking to the side.",

@@ -33,12 +33,6 @@
       "transition_in": "cut"
     },
     {
-      "id": "eyes-close-macro",
-      "order": 7,
-      "duration_s": 1.0,
-      "transition_in": "cut"
-    },
-    {
       "id": "reflection-glass",
       "order": 8,
       "duration_s": 1.0,
