@@ -64,35 +64,46 @@ A second, distinct look used only for the Wrap Trouser Beige colorway —
 paparazzi/CCTV street-style rather than Look A's moody handheld editorial.
 
 - **Reference**: `95af09bc-instappa-post-DVwNp5mAHMg.mp4` — 10.68s single
-  continuous overhead shot (see `shots/reference-breakdown-wrap-trouser-beige.md`),
-  restyled per a South Bombay street-style mood reference (maroon shirt,
-  beige wide-leg trousers, no belt, holding a coffee cup, leaning near a
-  lamppost, colonial-era stone facade backdrop).
-- **Visual style**: high-angle paparazzi/candid street-style shot — the
-  camera looks down on the subject from above, fixed high angle with a slow
-  tracking pan, not eye-level editorial.
-- **Setting**: South Bombay (Kala Ghoda/Colaba-adjacent) streetscape —
-  worn sandstone/colonial-era facades, tarred road, a zebra crossing is fine.
-  Neutral architecture only, no identifiable signage or text.
-- **Wardrobe**: maroon/burgundy full-sleeve collared shirt, tucked into
-  Wrap Trouser Beige (`Wrap Trouser Beige.png`) — exact front wrap panel,
-  button waistband, and elastic back waist unchanged. **No belt** — this
-  garment has no belt loops, so nothing sits at the waist over the shirt.
-  Black ankle boots, delicate gold jewelry, hair down.
+  continuous overhead shot (see `shots/reference-breakdown-wrap-trouser-beige.md`).
+  Camera angle/framing must match this reference exactly: fixed top-down
+  overhead shot, not an eye-level portrait.
+- **Visual style**: realistic candid phone-shot street style — shot-on-iPhone
+  texture, natural un-graded color, visible handheld motion and phone-camera
+  noise/grain. NOT a polished cinematic AI render: no dramatic golden-hour
+  glow, no airbrushed/glossy skin, no artificial warm color cast. Neutral
+  daylight white balance, true-to-life color.
+- **Setting**: South Bombay Fort/Kala Ghoda heritage streetscape — colonial-era
+  stone building facade, arcade of stone arches, columns with carved
+  capitals, sandstone/brick tones, parked cars at the curb. Architecture
+  inspiration only — no readable signage, text, or brand names anywhere in
+  frame (the mood reference includes a real store's signage; omit it).
+- **Wardrobe**: maroon/burgundy full-sleeve collared shirt in **linen** (not
+  satin/silk — natural linen texture and creasing, matte not glossy), tucked
+  into Wrap Trouser Beige (`Wrap Trouser Beige.png`) — exact front wrap panel
+  and button waistband shape unchanged, but the fabric reads as a **flowy
+  nylon-blend drape**, not stiff structured cotton — soft movement in the
+  wrap panel and hem, slight natural sheen. **No belt** — this garment has no
+  belt loops, so nothing sits at the waist over the shirt. Chic minimal
+  styling overall (not overly polished/red-carpet). Footwear: simple black
+  leather flat loafers or mules — not heeled ankle boots, which read wrong
+  with this silhouette. Delicate gold jewelry, hair down.
 - **Props**: a to-go coffee cup in one hand; a black structured handbag in
-  the other is optional (present in the source video, not in the mood
-  reference — include it only if it reads clean in frame).
-- **Lighting/grade**: hard late-afternoon/golden-hour sun, long cast
-  shadows, warm neutral highlights, desaturated stone-toned street — not
-  the teal-shadow grade of Look A.
+  the other is optional (present in the source video — include it only if
+  it reads clean in frame).
+- **Lighting/grade**: natural daylight, soft realistic contrast, true color —
+  explicitly avoid golden/amber AI-glow grading. Not the teal-shadow grade
+  of Look A either.
 - **Duration / aspect ratio**: 9:16 vertical, ~10-11s total (match reference).
-- **Things to avoid**: any belt or belt loops on the trousers, croissant/food
-  props unless intentionally kept, movie-poster or dense-text backdrops,
-  over-sharpened CGI look.
+- **Things to avoid**: any belt or belt loops on the trousers, heeled boots,
+  satin/glossy shirt fabric, stiff/structured trouser drape, golden
+  cinematic AI glow, readable signage/brand text/logos, movie-poster or
+  dense-text backdrops, over-sharpened CGI look.
 
 ### Consistency anchors (Look B only)
 
-- "Indian model, South Bombay street-style, high-angle paparazzi shot"
-- "maroon full-sleeve collared shirt tucked into Wrap Trouser Beige — exact wrap panel and button waistband unchanged, no belt, no belt loops"
-- "fixed high overhead angle, slow tracking pan, warm late-afternoon sunlight, long shadows"
-- "South Bombay colonial-era street, worn sandstone facades, desaturated stone tones"
+- "Indian model, South Bombay street-style, realistic shot-on-iPhone candid photo, not a cinematic AI render"
+- "linen maroon shirt (matte, not satin) tucked into Wrap Trouser Beige — exact wrap panel and button waistband shape unchanged, flowy nylon-blend drape, no belt, no belt loops"
+- "black leather flat loafers, not heeled boots"
+- "fixed top-down overhead angle, matching the reference video framing exactly"
+- "South Bombay Fort/Kala Ghoda heritage stone building, arches and columns, no readable signage or text"
+- "natural daylight, true color, no golden/amber AI glow"
