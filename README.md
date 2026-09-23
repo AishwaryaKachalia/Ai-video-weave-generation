@@ -25,6 +25,7 @@ Figma Weave for clip generation.
 ## Layout
 
 ```
+products/  <sku>/<colorway>.png   — product reference photos, one folder per SKU
 config/    look-bible.md          — stage 1 output (style + product spec)
 shots/     <name>.shot-list.json  — stage 2 output (per-clip breakdown)
 clips/     <shot-id>.mp4          — stage 3 output (raw Weave generations, gitignored)
@@ -32,6 +33,17 @@ output/    <name>.mp4             — stage 4 output (final stitched video, giti
 schema/    shot-list.schema.json  — shot list format
 scripts/   stitch.py              — clip concatenation/assembly
 ```
+
+## Product catalog
+
+`products/` holds reference photos for every SKU/colorway, hosted here so
+Weave (an external service) can fetch them by raw GitHub URL:
+
+- `products/flap-trouser/` — pinstripe wide-leg with asymmetric drape panel and "BB" waistband tab. `black.png` (studio sheet), `black-realworld.jpg` (phone photo), `blue.png`, `grey.png`.
+- `products/wrap-trouser/` — cropped wide-leg with a front arched wrap panel, button waistband. `beige.png`, `black.png`, `olive.png`.
+
+Each generation should pull its reference images from the specific SKU/colorway
+folder being generated, not the whole catalog, to keep prompts unambiguous.
 
 ## Usage
 
