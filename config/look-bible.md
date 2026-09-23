@@ -38,7 +38,13 @@ SKU/colorway per generation and only reference that folder's images.
 - **Duration / aspect ratio**: 9:16 vertical, ~20-25s total (match reference).
 - **Platform**: Instagram Reel.
 - **Model**: Indian model, styled to match the reference's editorial street-cast look.
-- **Things to avoid**: any alteration to the trousers' cut, pattern, drape, or branding; over-sharpened/clinical CGI look; mismatched lighting between shots.
+- **Things to avoid**: any alteration to the trousers' cut, pattern, drape, or branding; over-sharpened/clinical CGI look; mismatched lighting between shots; harsh contrast/crushed blacks; culturally on-the-nose backdrops (Bollywood-style movie posters, heavy Hindi/Marathi text hoardings) — keep backdrops neutral urban Indian (generic architecture/texture), not a caricature.
+
+## Video/motion notes
+
+- **Grade**: soft natural contrast, no harsh sharp lines or crushed blacks — gentler tonal falloff than a typical AI-render default.
+- **Pace**: match each shot's actual motion from the reference (see `shots/reference-breakdown.md` and the per-shot notes below) — real-time human motion, never an unintended slow-motion look unless the reference shot itself is a held/static beat.
+- **Backgrounds**: neutral urban Indian streetscape — worn architecture and generic signage are fine, but avoid movie-poster billboards or dense identifiable text as a focal background element.
 
 ## Consistency anchors
 
