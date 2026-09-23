@@ -4,12 +4,15 @@
 Usage:
     python3 scripts/stitch.py shots/my-scene.shot-list.json --out output/my-scene.mp4
 
-Reads clips from clips/<shot-id>.mp4 (override with --clips-dir). Each clip is
-trimmed to its shot's duration_s and normalized to a common resolution/fps
-(raw Weave outputs vary in size) before joining. Shots whose transition_in is
-"cut" (the default) are joined with a hard cut; if any shot uses "crossfade"
-or "fade_from_black", the whole timeline is re-encoded with ffmpeg's
-xfade/fade filters instead of the fast concat demuxer.
+Reads clips from clips/<shot-id>.mp4 (override with --clips-dir). Each shot
+entry is trimmed from its optional start_s (default 0) for duration_s, then
+normalized to a common resolution/fps (raw Weave outputs vary in size) before
+joining — the same source clip's id can appear in multiple shot entries with
+different start_s/duration_s to reuse different moments of one clip as
+separate cuts. Shots whose transition_in is "cut" (the default) are joined
+with a hard cut; if any shot uses "crossfade" or "fade_from_black", the whole
+timeline is re-encoded with ffmpeg's xfade/fade filters instead of the fast
+concat demuxer.
 """
 import argparse
 import json
@@ -68,13 +71,15 @@ def normalize_and_trim(shots: list[dict], clip_paths: list[Path], tmp_dir: Path,
             f":x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s={TARGET_WIDTH}x{TARGET_HEIGHT}"
         )
     out_paths = []
-    for shot, src in zip(shots, clip_paths):
-        dst = tmp_dir / f"{shot['id']}.mp4"
-        subprocess.run(
-            ["ffmpeg", "-y", "-i", str(src), "-t", str(shot["duration_s"]),
-             "-vf", vf, "-c:v", "libx264", "-pix_fmt", "yuv420p", "-an", str(dst)],
-            check=True,
-        )
+    for i, (shot, src) in enumerate(zip(shots, clip_paths)):
+        dst = tmp_dir / f"{i:03d}-{shot['id']}.mp4"
+        start_s = shot.get("start_s", 0)
+        cmd = ["ffmpeg", "-y"]
+        if start_s:
+            cmd += ["-ss", str(start_s)]
+        cmd += ["-i", str(src), "-t", str(shot["duration_s"]),
+                "-vf", vf, "-c:v", "libx264", "-pix_fmt", "yuv420p", "-an", str(dst)]
+        subprocess.run(cmd, check=True)
         out_paths.append(dst)
     return out_paths
 

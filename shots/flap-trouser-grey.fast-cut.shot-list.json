@@ -1,78 +1,33 @@
 {
   "scene": "flap-trouser-grey",
-  "reference": "05999f36-instappa-post-DVi7d97jdVL.mp4 for shot content + edb2e77c-instappa-post-DXrfuNMDt60.mp4 for editing rhythm: dense bursts of sub-0.5s hard cuts, one longer hero hold in the middle, a second quick burst, then a slightly longer outro close. No crossfades anywhere.",
+  "reference": "05999f36-instappa-post-DVi7d97jdVL.mp4 for shot content + edb2e77c-instappa-post-DXrfuNMDt60.mp4 for editing rhythm: dense bursts of sub-0.5s hard cuts, one longer hero hold, a second burst, then a slightly longer outro close. Each raw clip appears twice, at two different start_s offsets, so the same clip reads as two different reshuffled moments (matching how the reference reuses the same pose from different instants). No crossfades anywhere. ~15s total.",
   "shots": [
-    {
-      "id": "profile-closeup",
-      "order": 1,
-      "duration_s": 0.35,
-      "transition_in": "cut"
-    },
-    {
-      "id": "wide-walk",
-      "order": 2,
-      "duration_s": 0.4,
-      "transition_in": "cut"
-    },
-    {
-      "id": "traffic-light-macro",
-      "order": 3,
-      "duration_s": 0.25,
-      "transition_in": "cut"
-    },
-    {
-      "id": "walk-signal-macro",
-      "order": 4,
-      "duration_s": 0.25,
-      "transition_in": "cut"
-    },
-    {
-      "id": "side-profile-wall",
-      "order": 5,
-      "duration_s": 0.4,
-      "transition_in": "cut"
-    },
-    {
-      "id": "full-body-wall",
-      "order": 6,
-      "duration_s": 0.3,
-      "transition_in": "cut"
-    },
-    {
-      "id": "reflection-glass",
-      "order": 7,
-      "duration_s": 0.4,
-      "transition_in": "cut"
-    },
-    {
-      "id": "boots-macro",
-      "order": 8,
-      "duration_s": 1.7,
-      "transition_in": "cut"
-    },
-    {
-      "id": "legs-wide-walk",
-      "order": 9,
-      "duration_s": 0.45,
-      "transition_in": "cut"
-    },
-    {
-      "id": "station-walk",
-      "order": 10,
-      "duration_s": 0.24,
-      "transition_in": "cut"
-    },
-    {
-      "id": "platform-stand",
-      "order": 11,
-      "duration_s": 0.4,
-      "transition_in": "cut"
-    },
-    {
-      "id": "window-reflection",
-      "order": 12,
-      "duration_s": 1.3,
-      "transition_in": "cut"
-    }
+    { "id": "profile-closeup", "order": 1, "start_s": 0.2, "duration_s": 0.45, "transition_in": "cut" },
+    { "id": "wide-walk", "order": 2, "start_s": 0.3, "duration_s": 0.45, "transition_in": "cut" },
+    { "id": "traffic-light-macro", "order": 3, "start_s": 0.3, "duration_s": 0.35, "transition_in": "cut" },
+    { "id": "walk-signal-macro", "order": 4, "start_s": 0.3, "duration_s": 0.35, "transition_in": "cut" },
+    { "id": "side-profile-wall", "order": 5, "start_s": 0.3, "duration_s": 0.45, "transition_in": "cut" },
+    { "id": "full-body-wall", "order": 6, "start_s": 0.3, "duration_s": 0.35, "transition_in": "cut" },
+    { "id": "reflection-glass", "order": 7, "start_s": 0.3, "duration_s": 0.45, "transition_in": "cut" },
+    { "id": "boots-macro", "order": 8, "start_s": 0.3, "duration_s": 0.45, "transition_in": "cut" },
+    { "id": "legs-wide-walk", "order": 9, "start_s": 0.3, "duration_s": 0.45, "transition_in": "cut" },
+    { "id": "station-walk", "order": 10, "start_s": 0.2, "duration_s": 0.24, "transition_in": "cut" },
+    { "id": "platform-stand", "order": 11, "start_s": 0.3, "duration_s": 0.45, "transition_in": "cut" },
+    { "id": "window-reflection", "order": 12, "start_s": 0.3, "duration_s": 0.45, "transition_in": "cut" },
+
+    { "id": "boots-macro", "order": 13, "start_s": 1.2, "duration_s": 3.6, "transition_in": "cut" },
+
+    { "id": "profile-closeup", "order": 14, "start_s": 2.5, "duration_s": 0.4, "transition_in": "cut" },
+    { "id": "wide-walk", "order": 15, "start_s": 2.6, "duration_s": 0.4, "transition_in": "cut" },
+    { "id": "traffic-light-macro", "order": 16, "start_s": 2.5, "duration_s": 0.3, "transition_in": "cut" },
+    { "id": "walk-signal-macro", "order": 17, "start_s": 2.5, "duration_s": 0.3, "transition_in": "cut" },
+    { "id": "side-profile-wall", "order": 18, "start_s": 2.5, "duration_s": 0.4, "transition_in": "cut" },
+    { "id": "full-body-wall", "order": 19, "start_s": 2.5, "duration_s": 0.3, "transition_in": "cut" },
+    { "id": "reflection-glass", "order": 20, "start_s": 2.5, "duration_s": 0.4, "transition_in": "cut" },
+    { "id": "legs-wide-walk", "order": 21, "start_s": 2.6, "duration_s": 0.4, "transition_in": "cut" },
+    { "id": "station-walk", "order": 22, "start_s": 2.0, "duration_s": 0.24, "transition_in": "cut" },
+    { "id": "platform-stand", "order": 23, "start_s": 2.2, "duration_s": 0.4, "transition_in": "cut" },
+
+    { "id": "window-reflection", "order": 24, "start_s": 2.0, "duration_s": 2.7, "transition_in": "cut" }
   ]
 }
