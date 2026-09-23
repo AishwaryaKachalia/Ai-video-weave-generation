@@ -14,7 +14,6 @@
     { "id": "walk-signal-macro", "order": 9, "start_s": 0.3, "duration_s": 0.6, "zoom": 1.0, "transition_in": "cut" },
     { "id": "legs-wide-walk", "order": 10, "start_s": 0.3, "duration_s": 0.8, "zoom": 1.0, "transition_in": "cut" },
     { "id": "full-body-wall", "order": 11, "start_s": 0.3, "duration_s": 0.9, "zoom": 1.0, "zoom_to": 1.7, "focus_y": 0.1, "focus_y_to": 0.1, "transition_in": "cut" },
-    { "id": "full-body-wall", "order": 12, "start_s": 0.3, "duration_s": 1.1, "zoom": 1.7, "zoom_to": 1.0, "focus_y": 0.1, "focus_y_to": 0.5, "transition_in": "cut" },
     { "id": "side-profile-wall", "order": 13, "start_s": 0.3, "duration_s": 0.7, "zoom": 1.0, "transition_in": "cut" },
     { "id": "full-body-wall", "order": 14, "start_s": 0.3, "duration_s": 0.7, "zoom": 1.0, "focus_y": 0.5, "transition_in": "cut" },
     { "id": "traffic-light-macro", "order": 15, "start_s": 0.3, "duration_s": 0.5, "zoom": 1.0, "transition_in": "cut" },
