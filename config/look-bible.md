@@ -9,15 +9,15 @@ Two SKUs, each in multiple colorways — see `products/<sku>/`. Pick one
 SKU/colorway per generation and only reference that folder's images.
 
 ### Flap Trouser (`products/flap-trouser/`)
-- **What is it**: Wide-leg trousers, high-waisted, with a draped flap panel on the FRONT of BOTH legs (symmetric, not asymmetric/single-leg) and a completely PLAIN waistband — no belt loops, no visible tag/logo near the button or fly area. (The real garment has a small embossed "BB" tab at one waistband corner, but generations have repeatedly rendered this as a belt-loop-like tab near the center/fly — so omit the tab entirely in prompts and keep the waistband plain rather than risk it again.)
+- **What is it**: Wide-leg trousers, high-waisted, with a draped flap panel on the FRONT of BOTH legs (symmetric, not asymmetric/single-leg) and a completely PLAIN waistband — no belt loops, no monogram, no tag/logo of any kind, anywhere on the waistband. Do not include any branding on the waistband in any prompt — every attempt to include it (even just a small tab) has been misrendered as a belt loop. Plain fabric only.
 - **Colorways**: `black.png` (pinstripe charcoal — primary), `blue.png`, `grey.png`. Real-world reference: `black-realworld.jpg`.
 - **GARMENT MECHANICS — critical, verified against the product photo (corrected twice — read carefully)**:
   - The flap is stitched down along ONE edge only (the waistband at top, continuing down the inner/front seam) — it is NOT free on all sides, but it is also NOT bonded flat on both edges.
   - The OTHER edge (the outer diagonal edge) is free, like a curtain hinged on one side. This means it **can move and swing naturally with her stride** — realistic, weighted fabric motion following gravity and momentum — but it stays generally close to the leg. It must NOT flare wide open, fly out sideways, separate dramatically from the leg, or look like a loose flag/cape. Subtle, natural, weighted sway only — think heavy wool fabric, not silk or a flag.
   - **Only visible from the front.** The back view (`grey.png` top-right panel) is completely flat pinstripe with no flap, drape, or panel of any kind. Any shot where her back is to camera (walking away, etc.) must show plain flat trousers — no flap.
   - Do not swing between extremes: not fully rigid/frozen, not wildly loose. Natural hinged-fabric movement.
-- **Key features to showcase**: the front drape panel (both legs), the pinstripe texture (black colorway), wide-leg silhouette, the branded waistband tab.
-- **What must never be wrong**: exact pattern/colorway, the flap panel shape and its stitched-down construction, the plain waistband (NO belt loops, no tag/logo near the button/fly), zip fly hardware, the plain/flat back view. Must render pixel-faithful to the supplied photos — no redesigning the garment.
+- **Key features to showcase**: the front drape panel (both legs), the pinstripe texture (black colorway), wide-leg silhouette.
+- **What must never be wrong**: exact pattern/colorway, the flap panel shape and its stitched-down construction, the completely plain waistband (NO belt loops, NO monogram/tag/logo anywhere on it), zip fly hardware, the plain/flat back view. Must render pixel-faithful to the supplied photos — no redesigning the garment.
 
 ### Wrap Trouser (`products/wrap-trouser/`)
 - **What is it**: Cropped wide-leg trousers with a front arched wrap panel overlay, button waistband detail, elastic back waist, side vents at the hem.
@@ -54,5 +54,5 @@ Short phrases to repeat across every shot prompt so clips feel like one video:
 - "Indian model, moody urban editorial street-fashion film"
 - "desaturated teal shadows, warm skin tones, shallow depth of field"
 - "wearing [exact product from products/<sku>/<colorway>.png] — garment unchanged from reference"
-- (Flap Trouser only) "flap panel hinged at waistband/inner seam, subtle natural sway only, not visible from behind — waistband completely plain, no belt loops, no tag/logo near the button/fly"
+- (Flap Trouser only) "flap panel hinged at waistband/inner seam, subtle natural sway only, not visible from behind — waistband completely plain fabric, no belt loops, no monogram, no tag or logo of any kind"
 - "handheld gimbal energy, soft natural daylight"
