@@ -1,70 +1,76 @@
 {
   "scene": "flap-trouser-grey",
-  "reference": "05999f36-instappa-post-DVi7d97jdVL.mp4 (see shots/reference-breakdown.md) — fast-cut alternate edit, tighter durations + punch-in zoom for a quicker, more energetic rhythm than the reference-matched cut",
+  "reference": "05999f36-instappa-post-DVi7d97jdVL.mp4 for shot content + edb2e77c-instappa-post-DXrfuNMDt60.mp4 for editing rhythm: dense bursts of sub-0.5s hard cuts, one longer hero hold in the middle, a second quick burst, then a slightly longer outro close. No crossfades anywhere.",
   "shots": [
     {
       "id": "profile-closeup",
       "order": 1,
-      "duration_s": 1.0,
+      "duration_s": 0.35,
+      "transition_in": "cut"
+    },
+    {
+      "id": "wide-walk",
+      "order": 2,
+      "duration_s": 0.4,
       "transition_in": "cut"
     },
     {
       "id": "traffic-light-macro",
       "order": 3,
-      "duration_s": 0.6,
+      "duration_s": 0.25,
       "transition_in": "cut"
     },
     {
       "id": "walk-signal-macro",
       "order": 4,
-      "duration_s": 0.6,
+      "duration_s": 0.25,
       "transition_in": "cut"
     },
     {
       "id": "side-profile-wall",
       "order": 5,
-      "duration_s": 1.1,
+      "duration_s": 0.4,
       "transition_in": "cut"
     },
     {
       "id": "full-body-wall",
       "order": 6,
-      "duration_s": 0.6,
+      "duration_s": 0.3,
       "transition_in": "cut"
     },
     {
       "id": "reflection-glass",
-      "order": 8,
-      "duration_s": 1.0,
+      "order": 7,
+      "duration_s": 0.4,
       "transition_in": "cut"
     },
     {
       "id": "boots-macro",
-      "order": 9,
-      "duration_s": 1.5,
+      "order": 8,
+      "duration_s": 1.7,
       "transition_in": "cut"
     },
     {
       "id": "legs-wide-walk",
-      "order": 10,
-      "duration_s": 2.2,
+      "order": 9,
+      "duration_s": 0.45,
       "transition_in": "cut"
     },
     {
       "id": "station-walk",
-      "order": 11,
+      "order": 10,
       "duration_s": 0.24,
       "transition_in": "cut"
     },
     {
       "id": "platform-stand",
-      "order": 12,
-      "duration_s": 0.9,
+      "order": 11,
+      "duration_s": 0.4,
       "transition_in": "cut"
     },
     {
       "id": "window-reflection",
-      "order": 13,
+      "order": 12,
       "duration_s": 1.3,
       "transition_in": "cut"
     }

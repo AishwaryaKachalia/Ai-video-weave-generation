@@ -12,6 +12,14 @@
       "transition_in": "cut"
     },
     {
+      "id": "wide-walk",
+      "order": 2,
+      "description": "Wide shot, full body, walking away from camera down a worn street past an old hoarding — back view, plain flat trousers (flap only visible from front).",
+      "camera": "Handheld, wide, tracking from behind",
+      "duration_s": 0.9,
+      "transition_in": "cut"
+    },
+    {
       "id": "traffic-light-macro",
       "order": 3,
       "description": "Macro insert, Indian street traffic signal with green arrow lit — environmental B-roll, no model.",
