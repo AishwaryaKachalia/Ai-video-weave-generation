@@ -57,3 +57,42 @@ Short phrases to repeat across every shot prompt so clips feel like one video:
 - "wearing [exact product from products/<sku>/<colorway>.png] — garment unchanged from reference"
 - (Flap Trouser only) "flap panel hinged at waistband/inner seam, subtle natural sway only, not visible from behind — waistband completely plain fabric, no belt loops, no monogram, no tag or logo of any kind"
 - "handheld gimbal energy, soft natural daylight"
+
+## Look B — South Bombay Coffee Run (Wrap Trouser Beige)
+
+A second, distinct look used only for the Wrap Trouser Beige colorway —
+paparazzi/CCTV street-style rather than Look A's moody handheld editorial.
+
+- **Reference**: `95af09bc-instappa-post-DVwNp5mAHMg.mp4` — 10.68s single
+  continuous overhead shot (see `shots/reference-breakdown-wrap-trouser-beige.md`),
+  restyled per a South Bombay street-style mood reference (maroon shirt,
+  beige wide-leg trousers, no belt, holding a coffee cup, leaning near a
+  lamppost, colonial-era stone facade backdrop).
+- **Visual style**: high-angle paparazzi/candid street-style shot — the
+  camera looks down on the subject from above, fixed high angle with a slow
+  tracking pan, not eye-level editorial.
+- **Setting**: South Bombay (Kala Ghoda/Colaba-adjacent) streetscape —
+  worn sandstone/colonial-era facades, tarred road, a zebra crossing is fine.
+  Neutral architecture only, no identifiable signage or text.
+- **Wardrobe**: maroon/burgundy full-sleeve collared shirt, tucked into
+  Wrap Trouser Beige (`Wrap Trouser Beige.png`) — exact front wrap panel,
+  button waistband, and elastic back waist unchanged. **No belt** — this
+  garment has no belt loops, so nothing sits at the waist over the shirt.
+  Black ankle boots, delicate gold jewelry, hair down.
+- **Props**: a to-go coffee cup in one hand; a black structured handbag in
+  the other is optional (present in the source video, not in the mood
+  reference — include it only if it reads clean in frame).
+- **Lighting/grade**: hard late-afternoon/golden-hour sun, long cast
+  shadows, warm neutral highlights, desaturated stone-toned street — not
+  the teal-shadow grade of Look A.
+- **Duration / aspect ratio**: 9:16 vertical, ~10-11s total (match reference).
+- **Things to avoid**: any belt or belt loops on the trousers, croissant/food
+  props unless intentionally kept, movie-poster or dense-text backdrops,
+  over-sharpened CGI look.
+
+### Consistency anchors (Look B only)
+
+- "Indian model, South Bombay street-style, high-angle paparazzi shot"
+- "maroon full-sleeve collared shirt tucked into Wrap Trouser Beige — exact wrap panel and button waistband unchanged, no belt, no belt loops"
+- "fixed high overhead angle, slow tracking pan, warm late-afternoon sunlight, long shadows"
+- "South Bombay colonial-era street, worn sandstone facades, desaturated stone tones"
