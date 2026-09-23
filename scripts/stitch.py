@@ -72,7 +72,22 @@ def normalize_and_trim(shots: list[dict], clip_paths: list[Path], tmp_dir: Path,
             f"scale={TARGET_WIDTH}:{TARGET_HEIGHT}:force_original_aspect_ratio=increase,"
             f"crop={TARGET_WIDTH}:{TARGET_HEIGHT},fps={TARGET_FPS}"
         )
-        if punch_in:
+        zoom_to = shot.get("zoom_to")
+        if zoom_to is not None:
+            # Explicit eased zoom move (ease-out cubic) from zoom -> zoom_to,
+            # like a hand doing a smooth pinch gesture rather than a constant
+            # linear crawl.
+            focus_y_to = shot.get("focus_y_to", focus_y)
+            frames = max(round(shot["duration_s"] * TARGET_FPS), 1)
+            fm1 = max(frames - 1, 1)
+            ease = f"(1-pow(1-min(on/{fm1},1),3))"
+            z_expr = f"{zoom}+({zoom_to}-{zoom})*{ease}"
+            fy_expr = f"({focus_y}+({focus_y_to}-{focus_y})*{ease})"
+            vf += (
+                f",zoompan=z='{z_expr}':d=1"
+                f":x='iw/2-(iw/zoom/2)':y='(ih-ih/zoom)*{fy_expr}':s={TARGET_WIDTH}x{TARGET_HEIGHT}"
+            )
+        elif punch_in:
             # Slow constant zoom-in from this shot's base zoom level, so held/
             # near-static shots still carry motion energy.
             zoom_max = zoom * PUNCH_IN_MAX
