@@ -1,0 +1,123 @@
+{
+  "scene": "flap-trouser-grey",
+  "reference": "05999f36-instappa-post-DVi7d97jdVL.mp4 (see shots/reference-breakdown.md)",
+  "shots": [
+    {
+      "id": "profile-closeup",
+      "order": 1,
+      "description": "Close-up profile portrait, hair softly moving, blurred hoarding/billboard bokeh behind her.",
+      "camera": "Static/handheld, shallow depth of field",
+      "prompt": "Same Indian woman as the reference hero image — same face, hairstyle, olive ruched sleeveless top, gold hoop earrings and layered necklace. Close-up profile portrait, hair softly moving in the breeze, blurred street hoarding/billboard bokeh behind her. Moody urban editorial street-fashion photograph, desaturated teal-green shadows, warm golden skin tones, shallow depth of field, natural daylight, handheld feel, subtle film grain, photographic un-airbrushed skin texture. Vertical 9:16.",
+      "duration_s": 1.2,
+      "transition_in": "cut"
+    },
+    {
+      "id": "wide-walk",
+      "order": 2,
+      "description": "Wide shot, full body, walking away from camera down a Mumbai street past an old hoarding, trousers' asymmetric drape swinging with her stride.",
+      "camera": "Handheld, wide, tracking from behind",
+      "prompt": "Same Indian woman as the reference hero image — same face, hairstyle, olive ruched sleeveless top, and EXACTLY the grey pinstripe flap trousers with the asymmetric drape panel and BB waistband tab shown in the reference product image, unchanged. Wide shot, full body, walking away from camera down a worn Mumbai street past an old hoarding, the trousers' drape panel swinging with her stride, black leather block-heel ankle boots. Moody urban editorial street-fashion photograph, desaturated teal-green shadows, warm golden tones, shallow depth of field, handheld feel, subtle film grain, photographic skin texture. Vertical 9:16.",
+      "duration_s": 0.9,
+      "transition_in": "cut"
+    },
+    {
+      "id": "traffic-light-macro",
+      "order": 3,
+      "description": "Macro insert, Indian street traffic signal with green arrow lit — environmental B-roll, no model.",
+      "camera": "Static macro",
+      "prompt": "Macro photograph of an Indian street traffic signal, green arrow lit, overcast sky behind, slightly weathered pole and housing. Desaturated teal-green grade, shallow depth of field, photographic film-grain texture, editorial urban street-fashion film insert shot. Vertical 9:16.",
+      "duration_s": 1.2,
+      "transition_in": "cut"
+    },
+    {
+      "id": "walk-signal-macro",
+      "order": 4,
+      "description": "Macro insert, pedestrian walk signal green figure, trees softly out of focus behind — environmental B-roll, no model.",
+      "camera": "Static macro",
+      "prompt": "Macro photograph of a pedestrian walk signal, green walking-figure icon lit, out-of-focus trees and overcast sky behind. Desaturated teal-green grade, shallow depth of field, photographic film-grain texture, editorial urban street-fashion film insert shot. Vertical 9:16.",
+      "duration_s": 1.3,
+      "transition_in": "cut"
+    },
+    {
+      "id": "side-profile-wall",
+      "order": 5,
+      "description": "Side profile against the weathered corrugated metal wall, moody, contemplative gaze.",
+      "camera": "Static, medium",
+      "prompt": "Same Indian woman as the reference hero image — same face, hairstyle, olive ruched sleeveless top, gold hoop earrings and layered necklace, EXACTLY the grey pinstripe flap trousers unchanged. Side profile medium shot against the same weathered rusted corrugated metal wall, moody contemplative gaze, soft daylight. Desaturated teal-green shadows, warm skin tones, shallow depth of field, handheld feel, subtle film grain, photographic un-airbrushed skin texture. Vertical 9:16.",
+      "duration_s": 1.7,
+      "transition_in": "cut"
+    },
+    {
+      "id": "full-body-wall",
+      "order": 6,
+      "description": "Full body three-quarter shot standing against the wall, hand near waist, confident pose — the locked hero frame (hero/flap-trouser-grey-v2.png).",
+      "camera": "Static, wide-medium",
+      "prompt": "Use the locked hero image (hero/flap-trouser-grey-v2.png) directly for this shot — same model, pose, wardrobe, and grade exactly as generated.",
+      "duration_s": 0.6,
+      "transition_in": "cut"
+    },
+    {
+      "id": "eyes-close-macro",
+      "order": 7,
+      "description": "Extreme close-up beauty shot, eyes closed, warm light on skin, natural texture detail.",
+      "camera": "Macro",
+      "prompt": "Same Indian woman as the reference hero image — same face and skin tone. Extreme close-up beauty macro shot, eyes closed, warm golden light raking across the skin, visible natural pores and fine texture, soft realistic shadows, not airbrushed or smoothed. Editorial fashion film insert, desaturated teal-warm grade, subtle film grain. Vertical 9:16.",
+      "duration_s": 1.9,
+      "transition_in": "cut"
+    },
+    {
+      "id": "reflection-glass",
+      "order": 8,
+      "description": "Reflection of the model in a glass/metal door, teal-toned reflection, looking to the side.",
+      "camera": "Static, medium",
+      "prompt": "Same Indian woman as the reference hero image — same face, hairstyle, olive ruched sleeveless top, gold jewelry. Medium shot of her reflection in a scratched glass or metal elevator-style door, teal-toned reflection, looking off to the side, soft ambient interior light. Desaturated teal-green grade, warm skin highlights, shallow depth of field, photographic film-grain texture. Vertical 9:16.",
+      "duration_s": 1.8,
+      "transition_in": "cut"
+    },
+    {
+      "id": "boots-macro",
+      "order": 9,
+      "description": "Macro insert, black leather block-heel ankle boots stepping on textured pavement, trouser hem visible.",
+      "camera": "Macro, low angle",
+      "prompt": "Macro low-angle photograph of black leather block-heel ankle boots stepping on textured street pavement, the hem of EXACTLY the grey pinstripe flap trousers (as in the reference product image) visible brushing the ground. Desaturated teal-green grade, shallow depth of field, photographic film-grain texture, editorial street-fashion film insert. Vertical 9:16.",
+      "duration_s": 3.1,
+      "transition_in": "cut"
+    },
+    {
+      "id": "legs-wide-walk",
+      "order": 10,
+      "description": "Wide shot of legs walking, wide-leg trousers swaying, pavement/platform edge in frame.",
+      "camera": "Medium-wide, tracking",
+      "prompt": "Same Indian woman as the reference hero image, EXACTLY the grey pinstripe flap trousers with the asymmetric drape panel unchanged, black leather block-heel ankle boots. Medium-wide tracking shot from the knee down, legs walking, the wide-leg trousers and drape panel swaying with motion, worn pavement/platform edge in frame. Desaturated teal-green grade, shallow depth of field, handheld feel, photographic film-grain texture. Vertical 9:16.",
+      "duration_s": 4.9,
+      "transition_in": "cut"
+    },
+    {
+      "id": "station-walk",
+      "order": 11,
+      "description": "Walking through a train station corridor, backlit, soft motion blur.",
+      "camera": "Handheld, tracking",
+      "prompt": "Same Indian woman as the reference hero image — same face, hairstyle, olive ruched sleeveless top, EXACTLY the grey pinstripe flap trousers unchanged. Handheld tracking shot walking through a train station corridor, backlit with soft motion blur, hair and trouser drape moving. Desaturated teal-green grade, warm backlight, shallow depth of field, photographic film-grain texture. Vertical 9:16.",
+      "duration_s": 0.24,
+      "transition_in": "cut"
+    },
+    {
+      "id": "platform-stand",
+      "order": 12,
+      "description": "Standing at a train platform, blurred train passing behind, calm confident stance.",
+      "camera": "Static, medium",
+      "prompt": "Same Indian woman as the reference hero image — same face, hairstyle, olive ruched sleeveless top, gold jewelry, EXACTLY the grey pinstripe flap trousers unchanged. Medium static shot standing at a train platform, a blurred train passing behind her, calm confident stance. Desaturated teal-green grade, warm skin tones, shallow depth of field, photographic film-grain texture. Vertical 9:16.",
+      "duration_s": 1.5,
+      "transition_in": "cut"
+    },
+    {
+      "id": "window-reflection",
+      "order": 13,
+      "description": "Reflection in a train/bus window, warm interior light, pensive expression.",
+      "camera": "Static, medium-close",
+      "prompt": "Same Indian woman as the reference hero image — same face, hairstyle, olive ruched sleeveless top. Medium-close shot of her reflection in a train/bus window, warm interior light, pensive expression, soft exterior blur beyond the glass. Desaturated teal-green grade, warm golden highlights, shallow depth of field, photographic film-grain texture, un-airbrushed skin. Vertical 9:16.",
+      "duration_s": 2.5,
+      "transition_in": "cut"
+    }
+  ]
+}
