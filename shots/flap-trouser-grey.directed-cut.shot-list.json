@@ -1,0 +1,16 @@
+{
+  "scene": "flap-trouser-grey",
+  "reference": "Manually directed sequence per user instruction: keep the opening beat, then slow down into a deliberate sequence — walk signal, trouser-walking clip, zoomed-in then zoomed-out wide-walk (same moment, two framings), side view of the same setting, front view, stop signal, metro station, glass-box reflection.",
+  "shots": [
+    { "id": "profile-closeup", "order": 1, "start_s": 0.2, "duration_s": 0.4, "zoom": 1.0, "transition_in": "cut" },
+    { "id": "walk-signal-macro", "order": 2, "start_s": 0.3, "duration_s": 0.6, "zoom": 1.0, "transition_in": "cut" },
+    { "id": "legs-wide-walk", "order": 3, "start_s": 0.3, "duration_s": 0.8, "zoom": 1.0, "transition_in": "cut" },
+    { "id": "wide-walk", "order": 4, "start_s": 2.4, "duration_s": 0.6, "zoom": 1.5, "transition_in": "cut" },
+    { "id": "wide-walk", "order": 5, "start_s": 2.4, "duration_s": 1.0, "zoom": 1.0, "transition_in": "cut" },
+    { "id": "side-profile-wall", "order": 6, "start_s": 0.3, "duration_s": 0.7, "zoom": 1.0, "transition_in": "cut" },
+    { "id": "full-body-wall", "order": 7, "start_s": 0.3, "duration_s": 0.6, "zoom": 1.0, "transition_in": "cut" },
+    { "id": "traffic-light-macro", "order": 8, "start_s": 0.3, "duration_s": 0.5, "zoom": 1.0, "transition_in": "cut" },
+    { "id": "station-walk", "order": 9, "start_s": 0.15, "duration_s": 0.6, "zoom": 1.0, "transition_in": "cut" },
+    { "id": "reflection-glass", "order": 10, "start_s": 0.3, "duration_s": 0.9, "zoom": 1.0, "transition_in": "cut" }
+  ]
+}
