@@ -64,6 +64,7 @@ def normalize_and_trim(shots: list[dict], clip_paths: list[Path], tmp_dir: Path,
         dst = tmp_dir / f"{i:03d}-{shot['id']}.mp4"
         start_s = shot.get("start_s", 0)
         zoom = shot.get("zoom", 1.0)
+        focus_y = shot.get("focus_y", 0.5)  # 0 = crop toward top of frame, 1 = toward bottom
         # "increase"+crop fills the frame (no letterbox bars) so a punched-in
         # zoom variant of the same clip reads as a distinct tighter framing,
         # not a repeat of the wide pass.
@@ -77,7 +78,7 @@ def normalize_and_trim(shots: list[dict], clip_paths: list[Path], tmp_dir: Path,
             zoom_max = zoom * PUNCH_IN_MAX
             vf += (
                 f",zoompan=z='if(eq(on,0),{zoom},min(zoom+{PUNCH_IN_RATE},{zoom_max}))':d=1"
-                f":x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s={TARGET_WIDTH}x{TARGET_HEIGHT}"
+                f":x='iw/2-(iw/zoom/2)':y='(ih-ih/zoom)*{focus_y}':s={TARGET_WIDTH}x{TARGET_HEIGHT}"
             )
         cmd = ["ffmpeg", "-y"]
         if start_s:
