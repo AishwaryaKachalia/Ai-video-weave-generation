@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Shot List",
+  "type": "object",
+  "required": ["scene", "reference", "shots"],
+  "properties": {
+    "scene": {
+      "type": "string",
+      "description": "Name of this video/scene, used to name output files."
+    },
+    "reference": {
+      "type": "string",
+      "description": "Path or URL to the reference image/video this list was derived from."
+    },
+    "shots": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "order", "description", "prompt", "duration_s"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique slug. The generated clip must be saved as clips/<id>.mp4."
+          },
+          "order": {
+            "type": "integer",
+            "description": "Position in the final edit, starting at 1."
+          },
+          "description": {
+            "type": "string",
+            "description": "What's literally in frame in the reference at this beat."
+          },
+          "camera": {
+            "type": "string",
+            "description": "Camera motion/framing for this shot (e.g. 'slow push in, eye level')."
+          },
+          "prompt": {
+            "type": "string",
+            "description": "Full prompt to send to Weave, built from this shot plus the look-bible consistency anchors."
+          },
+          "duration_s": {
+            "type": "number",
+            "description": "Target clip duration in seconds."
+          },
+          "transition_in": {
+            "type": "string",
+            "enum": ["cut", "crossfade", "fade_from_black"],
+            "default": "cut"
+          }
+        }
+      }
+    }
+  }
+}
