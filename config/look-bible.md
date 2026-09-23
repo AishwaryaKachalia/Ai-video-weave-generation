@@ -11,10 +11,11 @@ SKU/colorway per generation and only reference that folder's images.
 ### Flap Trouser (`products/flap-trouser/`)
 - **What is it**: Wide-leg trousers, high-waisted, with a draped flap panel on the FRONT of BOTH legs (symmetric, not asymmetric/single-leg), a clean waistband with NO belt loops, zip fly, and a small embossed "BB" monogram tab on the waistband.
 - **Colorways**: `black.png` (pinstripe charcoal — primary), `blue.png`, `grey.png`. Real-world reference: `black-realworld.jpg`.
-- **GARMENT MECHANICS — critical, verified against the product photo**:
-  - The flap is fully stitched down: anchored at the waistband (top) AND along the outer side seam of the leg. It is NOT a loose/free-hanging piece of fabric.
-  - Because it's captured along the side seam, **it does not move independently of the leg at all** — no flutter, no billow, no swing, no flare, in any shot, walking or static. It reads as a decorative layered/pleated panel, not a flag or cape. Treat it as bonded to the leg fabric.
+- **GARMENT MECHANICS — critical, verified against the product photo (corrected twice — read carefully)**:
+  - The flap is stitched down along ONE edge only (the waistband at top, continuing down the inner/front seam) — it is NOT free on all sides, but it is also NOT bonded flat on both edges.
+  - The OTHER edge (the outer diagonal edge) is free, like a curtain hinged on one side. This means it **can move and swing naturally with her stride** — realistic, weighted fabric motion following gravity and momentum — but it stays generally close to the leg. It must NOT flare wide open, fly out sideways, separate dramatically from the leg, or look like a loose flag/cape. Subtle, natural, weighted sway only — think heavy wool fabric, not silk or a flag.
   - **Only visible from the front.** The back view (`grey.png` top-right panel) is completely flat pinstripe with no flap, drape, or panel of any kind. Any shot where her back is to camera (walking away, etc.) must show plain flat trousers — no flap.
+  - Do not swing between extremes: not fully rigid/frozen, not wildly loose. Natural hinged-fabric movement.
 - **Key features to showcase**: the front drape panel (both legs), the pinstripe texture (black colorway), wide-leg silhouette, the branded waistband tab.
 - **What must never be wrong**: exact pattern/colorway, the flap panel shape and its stitched-down, non-moving construction, the "BB" monogram tab, the clean waistband (NO belt loops), zip fly hardware, the plain/flat back view. Must render pixel-faithful to the supplied photos — no redesigning the garment.
 
