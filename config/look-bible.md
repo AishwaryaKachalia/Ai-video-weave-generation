@@ -28,6 +28,17 @@ SKU/colorway per generation and only reference that folder's images.
 
 ## Look
 
+### Campaign: SoBo Wrap Trouser (Wrap Trouser, beige)
+
+- **Reference**: `reference/wrap-trouser-beige-sobo-reference.mp4` — 13.3s street-style reel, 4 posed segments joined by whip-pan taxi wipes (see `shots/wrap-trouser-beige-sobo.reference-breakdown.md`).
+- **Visual style**: bright sunlit candid street-style content — the opposite of the moody-urban look below. High-key natural daylight, saturated (not desaturated) color, minimal grain, crisp/clean editorial-casual "influencer" feel. Mostly static or gently handheld full-body/medium compositions; no walking-motion-blur shots.
+- **Location**: South Bombay (SoBo) — colonial-era stone architecture (arches, columns, wrought-iron lamps), tree-lined streets, generic heritage-building street corners. Avoid naming or showing specific identifiable landmarks/signage; keep it a generic composite SoBo street.
+- **Transition device**: between each of the 4 posed segments, a fast-moving **kaali peeli taxi** (black-and-yellow Mumbai taxi, Premier Padmini-style) whips through frame close to camera, fully motion-blurred, as a wipe transition — replaces the reference's yellow NYC cab wipe. Each wipe is its own short full-frame insert shot (~0.5s), not a crossfade.
+- **Model**: same Indian model constraint as below — consistent face/hair across all 4 segments (single continuous "character", not an outfit-change reel — she wears the Wrap Trouser beige throughout; only pose/backdrop/top styling shifts between segments).
+- **Duration / aspect ratio**: 9:16 vertical, ~13-14s total (match reference), Instagram Reel.
+
+### Campaign: Flap Trouser street-fashion film (moody urban editorial)
+
 - **Reference**: `05999f36-instappa-post-DVi7d97jdVL.mp4` — 23s fashion/streetwear reel, 13 shots (see `shots/reference-breakdown.md`).
 - **Visual style**: moody urban editorial street-fashion film. Handheld/gimbal energy, shallow depth of field, quick cuts, macro detail inserts mixed with full-body movement shots.
 - **Color palette**: desaturated teal-green shadows, warm/golden skin tones, muted urban backdrop (concrete, glass, foliage).
@@ -35,25 +46,39 @@ SKU/colorway per generation and only reference that folder's images.
 - **Camera language**: mix of extreme close-up macro (eyes, feet, product texture), medium walking shots with slight motion blur, and wide environmental shots (billboards, train platform). Frequent shallow-focus foreground/background falloff.
 - **Texture/material notes**: film-grain-ish, slightly soft/glowy highlights, not clinical-sharp — an editorial, lived-in city texture.
 
-## Constraints
+## Constraints (all campaigns)
 
-- **Duration / aspect ratio**: 9:16 vertical, ~20-25s total (match reference).
-- **Platform**: Instagram Reel.
-- **Model**: Indian model, styled to match the reference's editorial street-cast look.
-- **Things to avoid**: any alteration to the trousers' cut, pattern, drape, or branding; over-sharpened/clinical CGI look; mismatched lighting between shots; harsh contrast/crushed blacks; culturally on-the-nose backdrops (Bollywood-style movie posters, heavy Hindi/Marathi text hoardings) — keep backdrops neutral urban Indian (generic architecture/texture), not a caricature.
+- **Platform**: Instagram Reel, 9:16 vertical. Duration per-campaign (see each Look subsection above).
+- **Model**: Indian model, styled to match the given reference's cast look.
+- **Things to avoid**: any alteration to a garment's cut, pattern, drape, or branding; over-sharpened/clinical CGI look; mismatched lighting between shots; harsh contrast/crushed blacks; culturally on-the-nose backdrops (Bollywood-style movie posters, heavy Hindi/Marathi text hoardings, named/identifiable landmarks) — keep backdrops neutral/generic Indian urban (generic architecture/texture), not a caricature.
 
 ## Video/motion notes
 
+- **Pace**: match each shot's actual motion from its reference — real-time human motion, never an unintended slow-motion look unless the reference shot itself is a held/static beat. Saying "not slow motion" alone has not been enough — every motion prompt must give a concrete fast timeframe (e.g. "the head turn completes in under 1 second, a quick snap reaction" / "the smile forms in half a second, immediate not gradual") so the model doesn't stretch a small action across the full clip length.
+
+### Flap Trouser campaign (moody urban editorial)
 - **Grade**: soft natural contrast, no harsh sharp lines or crushed blacks — gentler tonal falloff than a typical AI-render default.
-- **Pace**: match each shot's actual motion from the reference (see `shots/reference-breakdown.md` and the per-shot notes below) — real-time human motion, never an unintended slow-motion look unless the reference shot itself is a held/static beat. Saying "not slow motion" alone has not been enough — every motion prompt must give a concrete fast timeframe (e.g. "the head turn completes in under 1 second, a quick snap reaction" / "the smile forms in half a second, immediate not gradual") so the model doesn't stretch a small action across the full clip length.
 - **Backgrounds**: neutral urban Indian streetscape — worn architecture and generic signage are fine, but avoid movie-poster billboards or dense identifiable text as a focal background element.
+
+### SoBo Wrap Trouser campaign
+- **Grade**: bright, high-key, saturated color — clean daylight-editorial, not moody/desaturated.
+- **Backgrounds**: generic South Bombay colonial-heritage streetscape (stone arches, columns, wrought-iron lamps, tree-lined) — no named landmarks or identifiable signage.
+- **Taxi wipes**: each wipe clip is a fast-moving black-and-yellow "kaali peeli" Mumbai taxi passing very close to camera, filling/streaking across the frame, heavily motion-blurred, ~0.5s. Same taxi styling every time (consistency anchor).
 
 ## Consistency anchors
 
-Short phrases to repeat across every shot prompt so clips feel like one video:
+Short phrases to repeat across every shot prompt so clips feel like one video.
 
+**Flap Trouser campaign:**
 - "Indian model, moody urban editorial street-fashion film"
 - "desaturated teal shadows, warm skin tones, shallow depth of field"
 - "wearing [exact product from products/<sku>/<colorway>.png] — garment unchanged from reference"
-- (Flap Trouser only) "flap panel hinged at waistband/inner seam, subtle natural sway only, not visible from behind — waistband completely plain fabric, no belt loops, no monogram, no tag or logo of any kind"
+- "flap panel hinged at waistband/inner seam, subtle natural sway only, not visible from behind — waistband completely plain fabric, no belt loops, no monogram, no tag or logo of any kind"
 - "handheld gimbal energy, soft natural daylight"
+
+**SoBo Wrap Trouser campaign:**
+- "Indian model, bright sunlit candid street-style content, South Bombay colonial-heritage backdrop"
+- "wearing the Wrap Trouser, beige colorway, from products/wrap-trouser/beige.png — arched wrap panel, button waistband, cropped wide-leg — garment unchanged from reference"
+- "same face/hair/styling as the previous segment — one continuous model across the whole video"
+- "high-key natural daylight, saturated color, clean crisp editorial-casual look, minimal grain"
+- (taxi-wipe shots only) "black-and-yellow kaali peeli Mumbai taxi whipping past camera, full-frame motion blur, no model, no text/signage legible"

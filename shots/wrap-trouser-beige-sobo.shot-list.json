@@ -1,0 +1,69 @@
+{
+  "scene": "wrap-trouser-beige-sobo",
+  "reference": "reference/wrap-trouser-beige-sobo-reference.mp4 (see shots/wrap-trouser-beige-sobo.reference-breakdown.md)",
+  "shots": [
+    {
+      "id": "street-corner-call",
+      "order": 1,
+      "description": "On the phone, one hand up near her hair, standing at a colonial-building street corner with a parked scooter behind her, at a zebra crossing.",
+      "camera": "Static/light handheld, medium-wide, eye level",
+      "prompt": "Indian model, bright sunlit candid street-style content, South Bombay colonial-heritage backdrop. Wearing the Wrap Trouser, beige colorway, from products/wrap-trouser/beige.png — arched front wrap panel, button waistband detail, cropped wide-leg silhouette, side hem vents — garment unchanged from reference. Standing at a South Bombay street corner, colonial stone building with an awning behind her, a parked Vespa/Chetak-style scooter and a zebra crossing in frame. She holds a phone to her ear with one hand, the other hand brushing her hair back, weight on one hip, casual confident energy. High-key natural daylight, saturated color, clean crisp editorial-casual look, minimal grain, mostly static camera with only very light handheld sway. No identifiable signage or landmarks. Vertical 9:16.",
+      "duration_s": 4.5,
+      "transition_in": "cut"
+    },
+    {
+      "id": "taxi-wipe-1",
+      "order": 2,
+      "description": "Kaali peeli Mumbai taxi whips past camera, full-frame motion blur wipe transition, no model.",
+      "camera": "Static, taxi passes inches from lens",
+      "prompt": "Black-and-yellow \"kaali peeli\" Mumbai taxi, Premier Padmini-style, whipping past very close to camera left to right, filling the frame, heavily motion-blurred so the black roof/yellow body streaks across the whole shot. No model, no legible text or signage. Bright high-key South Bombay daylight. The pass completes in well under half a second — a fast whip wipe, not a slow drive-by. Vertical 9:16.",
+      "duration_s": 0.5,
+      "transition_in": "cut"
+    },
+    {
+      "id": "flower-stall-hair",
+      "order": 3,
+      "description": "Hand brushing hair back, standing in front of a generic roadside flower-seller stall.",
+      "camera": "Static, medium, eye level",
+      "prompt": "Indian model, bright sunlit candid street-style content, South Bombay colonial-heritage backdrop. Same face/hair/styling as the previous segment — one continuous model across the whole video. Wearing the Wrap Trouser, beige colorway, from products/wrap-trouser/beige.png — arched front wrap panel, button waistband detail, cropped wide-leg silhouette, side hem vents — garment unchanged from reference. Standing in front of a generic South Bombay roadside flower-seller stall, buckets of colorful flowers softly out of focus behind her, no signage. One hand brushing her hair back off her face, a small natural smile, the gesture completing in under a second. High-key natural daylight, saturated color, clean crisp editorial-casual look, minimal grain, static camera. Vertical 9:16.",
+      "duration_s": 2.0,
+      "transition_in": "cut"
+    },
+    {
+      "id": "taxi-wipe-2",
+      "order": 4,
+      "description": "Kaali peeli Mumbai taxi whips past camera, full-frame motion blur wipe transition, no model.",
+      "camera": "Static, taxi passes inches from lens",
+      "prompt": "Black-and-yellow \"kaali peeli\" Mumbai taxi, Premier Padmini-style, whipping past very close to camera left to right, filling the frame, heavily motion-blurred so the black roof/yellow body streaks across the whole shot. No model, no legible text or signage. Bright high-key South Bombay daylight. The pass completes in well under half a second — a fast whip wipe, not a slow drive-by. Vertical 9:16.",
+      "duration_s": 0.5,
+      "transition_in": "cut"
+    },
+    {
+      "id": "postbox-street",
+      "order": 5,
+      "description": "Standing beside a red colonial-style pillar postbox on a tree-lined SoBo street, looking up/away, parked cars behind.",
+      "camera": "Static, medium-wide, eye level",
+      "prompt": "Indian model, bright sunlit candid street-style content, South Bombay colonial-heritage backdrop. Same face/hair/styling as the previous segments — one continuous model across the whole video. Wearing the Wrap Trouser, beige colorway, from products/wrap-trouser/beige.png — arched front wrap panel, button waistband detail, cropped wide-leg silhouette, side hem vents — garment unchanged from reference. Standing beside a red colonial-style cast-iron pillar postbox on a tree-lined South Bombay street, parked cars and heritage building facades softly out of focus behind her, dappled tree-shade light. She looks up and slightly away from camera, one hand near her face, relaxed candid pose. High-key natural daylight, saturated color, clean crisp editorial-casual look, minimal grain, static camera. Vertical 9:16.",
+      "duration_s": 2.5,
+      "transition_in": "cut"
+    },
+    {
+      "id": "taxi-wipe-3",
+      "order": 6,
+      "description": "Kaali peeli Mumbai taxi whips past camera, full-frame motion blur wipe transition, no model.",
+      "camera": "Static, taxi passes inches from lens",
+      "prompt": "Black-and-yellow \"kaali peeli\" Mumbai taxi, Premier Padmini-style, whipping past very close to camera left to right, filling the frame, heavily motion-blurred so the black roof/yellow body streaks across the whole shot. No model, no legible text or signage. Bright high-key South Bombay daylight. The pass completes in well under half a second — a fast whip wipe, not a slow drive-by. Vertical 9:16.",
+      "duration_s": 0.5,
+      "transition_in": "cut"
+    },
+    {
+      "id": "archway-triumph",
+      "order": 7,
+      "description": "Triumphant arm raised, standing under a grand SoBo colonial stone archway with a wrought-iron hanging lamp.",
+      "camera": "Static, medium-wide, slight low angle",
+      "prompt": "Indian model, bright sunlit candid street-style content, South Bombay colonial-heritage backdrop. Same face/hair/styling as the previous segments — one continuous model across the whole video. Wearing the Wrap Trouser, beige colorway, from products/wrap-trouser/beige.png — arched front wrap panel, button waistband detail, cropped wide-leg silhouette, side hem vents — garment unchanged from reference. Standing under a grand South Bombay colonial stone archway, Gothic/Indo-Saracenic carved stone detailing, a wrought-iron hanging lamp overhead, deep shaded archway behind her opening to bright daylight beyond. One arm raised triumphantly upward, joyful energy, the raise completing in under a second, not a slow gradual lift. High-key natural daylight on her, saturated color, clean crisp editorial-casual look, minimal grain, static camera. Vertical 9:16.",
+      "duration_s": 2.8,
+      "transition_in": "cut"
+    }
+  ]
+}
