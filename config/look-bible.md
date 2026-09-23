@@ -44,7 +44,7 @@ SKU/colorway per generation and only reference that folder's images.
 ## Video/motion notes
 
 - **Grade**: soft natural contrast, no harsh sharp lines or crushed blacks — gentler tonal falloff than a typical AI-render default.
-- **Pace**: match each shot's actual motion from the reference (see `shots/reference-breakdown.md` and the per-shot notes below) — real-time human motion, never an unintended slow-motion look unless the reference shot itself is a held/static beat.
+- **Pace**: match each shot's actual motion from the reference (see `shots/reference-breakdown.md` and the per-shot notes below) — real-time human motion, never an unintended slow-motion look unless the reference shot itself is a held/static beat. Saying "not slow motion" alone has not been enough — every motion prompt must give a concrete fast timeframe (e.g. "the head turn completes in under 1 second, a quick snap reaction" / "the smile forms in half a second, immediate not gradual") so the model doesn't stretch a small action across the full clip length.
 - **Backgrounds**: neutral urban Indian streetscape — worn architecture and generic signage are fine, but avoid movie-poster billboards or dense identifiable text as a focal background element.
 
 ## Consistency anchors
