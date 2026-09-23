@@ -67,6 +67,9 @@ paparazzi/CCTV street-style rather than Look A's moody handheld editorial.
   continuous overhead shot (see `shots/reference-breakdown-wrap-trouser-beige.md`).
   Camera angle/framing must match this reference exactly: fixed top-down
   overhead shot, not an eye-level portrait.
+- **Locked hero**: `hero/wrap-trouser-beige-v3.png` — brown ruched bandeau
+  top, brown boots/bag, top-down angle. Use this directly as the first-frame
+  image for every shot's video generation.
 - **Visual style**: realistic candid phone-shot street style — shot-on-iPhone
   texture, natural un-graded color, visible handheld motion and phone-camera
   noise/grain. NOT a polished cinematic AI render: no dramatic golden-hour
