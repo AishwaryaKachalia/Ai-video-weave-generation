@@ -23,6 +23,8 @@ DEFAULT_CROSSFADE_S = 0.5
 TARGET_WIDTH = 1080
 TARGET_HEIGHT = 1920
 TARGET_FPS = 25
+PUNCH_IN_RATE = 0.0025
+PUNCH_IN_MAX = 1.08
 
 
 def load_shots(shot_list_path: Path) -> list[dict]:
@@ -53,11 +55,18 @@ def probe_duration(path: Path) -> float:
     return float(out.stdout.strip())
 
 
-def normalize_and_trim(shots: list[dict], clip_paths: list[Path], tmp_dir: Path) -> list[Path]:
+def normalize_and_trim(shots: list[dict], clip_paths: list[Path], tmp_dir: Path, punch_in: bool = False) -> list[Path]:
     vf = (
         f"scale={TARGET_WIDTH}:{TARGET_HEIGHT}:force_original_aspect_ratio=decrease,"
         f"pad={TARGET_WIDTH}:{TARGET_HEIGHT}:(ow-iw)/2:(oh-ih)/2,fps={TARGET_FPS}"
     )
+    if punch_in:
+        # Slow constant zoom-in on every clip so held/near-static shots still
+        # carry motion energy, instead of reading as a frozen frame.
+        vf += (
+            f",zoompan=z='min(zoom+{PUNCH_IN_RATE},{PUNCH_IN_MAX})':d=1"
+            f":x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s={TARGET_WIDTH}x{TARGET_HEIGHT}"
+        )
     out_paths = []
     for shot, src in zip(shots, clip_paths):
         dst = tmp_dir / f"{shot['id']}.mp4"
@@ -118,6 +127,8 @@ def main() -> None:
     parser.add_argument("shot_list", type=Path)
     parser.add_argument("--clips-dir", type=Path, default=Path("clips"))
     parser.add_argument("--out", type=Path, required=True)
+    parser.add_argument("--punch-in", action="store_true",
+                         help="Add a slow constant zoom-in to every clip for extra motion energy.")
     args = parser.parse_args()
 
     if shutil.which("ffmpeg") is None:
@@ -128,7 +139,7 @@ def main() -> None:
     args.out.parent.mkdir(parents=True, exist_ok=True)
 
     with tempfile.TemporaryDirectory() as tmp:
-        normalized = normalize_and_trim(shots, clip_paths, Path(tmp))
+        normalized = normalize_and_trim(shots, clip_paths, Path(tmp), punch_in=args.punch_in)
 
         needs_crossfade = any(s.get("transition_in") in ("crossfade", "fade_from_black") for s in shots[1:])
         if needs_crossfade:
