@@ -1,0 +1,3 @@
+# Working rules for this repo
+
+- **Never run a paid generation call (Weave `weave_run_model` / `weave_run_tool`, or any image/video model) without first asking the user for that specific generation.** This applies in every session, not just the current one. Ask once, in plain text (no AskUserQuestion tool, no repeated re-confirmation) — a reply of "yes" or "generate" (or similarly clear approval) is enough to proceed. Do not fire off a "fix" or retry generation on your own initiative after showing a result — always ask first, even if a previous generation in the same conversation was already approved.
