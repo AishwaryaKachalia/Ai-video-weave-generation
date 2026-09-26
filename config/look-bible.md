@@ -48,6 +48,29 @@ SKU/colorway per generation and only reference that folder's images.
 - **Pace**: match each shot's actual motion from the reference (see `shots/reference-breakdown.md` and the per-shot notes below) — real-time human motion, never an unintended slow-motion look unless the reference shot itself is a held/static beat. Saying "not slow motion" alone has not been enough — every motion prompt must give a concrete fast timeframe (e.g. "the head turn completes in under 1 second, a quick snap reaction" / "the smile forms in half a second, immediate not gradual") so the model doesn't stretch a small action across the full clip length.
 - **Backgrounds**: neutral urban Indian streetscape — worn architecture and generic signage are fine, but avoid movie-poster billboards or dense identifiable text as a focal background element.
 
+## Alternate look: Still-Life Product Flat-Lay
+
+A separate look from the fashion-film reference above, used for standalone
+product/detail hero stills (not part of the main video edit).
+
+- **Reference**: `style-refs/flatlay-tray-glove-ref.webp` — a knit glove folded on
+  an oval brushed-pewter tray, near-black warm-brown backdrop, gold jewelry
+  props (ring, antique key) resting on/beside the garment, soft single-source
+  top light with a gentle falloff shadow, close overhead/45° framing.
+- **Visual style**: minimal, moody studio still-life. Warm near-black backdrop,
+  one muted-metal prop surface (tray), one or two small gold jewelry props for
+  scale/luxury cues. No model, no environment — garment is the only subject.
+- **Lighting**: single soft diffused top-left light source, soft shadow falloff
+  to the right, no harsh specular highlights, warm neutral color temperature.
+- **Camera**: static overhead or steep 45° angle, macro-to-medium framing,
+  shallow depth of field so the tray edge and backdrop soften slightly.
+- **Consistency anchors for this look**:
+  - "minimal moody studio still-life, warm near-black backdrop"
+  - "oval brushed-pewter tray, soft single top-light with gentle shadow falloff"
+  - "one or two small gold jewelry props (ring/antique key) resting on the fabric for scale"
+  - "garment is EXACTLY [colorway] from [product photo] — pixel-faithful, unchanged"
+  - (Flap Trouser) "plain waistband, no belt loops, no monogram, no tag/logo of any kind"
+
 ## Consistency anchors
 
 Short phrases to repeat across every shot prompt so clips feel like one video:

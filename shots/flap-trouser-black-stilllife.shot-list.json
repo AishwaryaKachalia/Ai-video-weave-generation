@@ -1,0 +1,33 @@
+{
+  "scene": "flap-trouser-black-stilllife",
+  "reference": "style-refs/flatlay-tray-glove-ref.webp (still-life flat-lay look, see config/look-bible.md \"Alternate look: Still-Life Product Flat-Lay\") + Flap Trouser Black.png (garment reference)",
+  "shots": [
+    {
+      "id": "waistband-flap-fold-tray",
+      "order": 1,
+      "description": "Corner of the waistband and front flap panel folded onto an oval brushed-pewter tray, a gold ring and an antique gold key resting on the folded fabric, near-black warm-brown backdrop.",
+      "camera": "Static, 45-degree overhead, macro-to-medium, shallow depth of field",
+      "prompt": "EXACTLY the black pinstripe Flap Trouser (as in Flap Trouser Black.png) — pixel-faithful colorway and texture, plain waistband with no belt loops, no monogram, no tag or logo of any kind. A corner of the waistband and the front drape flap panel is folded and draped over an oval brushed-pewter tray, showing the diagonal flap seam and pinstripe texture clearly. A slim gold ring and a small antique gold key rest on the folded fabric, echoing a jewelry-on-fabric styling detail. Near-black warm-brown backdrop, soft single-source top-left light with gentle shadow falloff to the right, no harsh specular highlights. Minimal moody studio still-life product photography, no model, no environment, subtle film-grain texture, warm neutral color temperature. Square or vertical framing.",
+      "duration_s": 3.5,
+      "transition_in": "cut"
+    },
+    {
+      "id": "pinstripe-texture-macro",
+      "order": 2,
+      "description": "Tighter macro crop on the pinstripe fabric and the flap panel's diagonal seam, one gold prop leaning against the fold.",
+      "camera": "Static, macro, shallow depth of field",
+      "prompt": "EXACTLY the black pinstripe Flap Trouser (as in Flap Trouser Black.png) fabric — pixel-faithful colorway. Tight macro shot of the pinstripe texture and the flap panel's diagonal stitched seam folded over itself, an antique gold key leaning against the fold for scale. Resting on an oval brushed-pewter tray, near-black warm-brown backdrop just visible at the edges. Soft single-source top light, gentle falloff shadow, no harsh highlights. Minimal moody studio still-life product photography, no model, no environment, subtle film-grain texture. Square or vertical framing.",
+      "duration_s": 3.0,
+      "transition_in": "cut"
+    },
+    {
+      "id": "flap-panel-drape-corner",
+      "order": 3,
+      "description": "Wider still showing the triangular flap panel's silhouette and drape shape, tray edge and backdrop visible, a gold ring beside the fabric.",
+      "camera": "Static, 45-degree, medium, shallow depth of field",
+      "prompt": "EXACTLY the black pinstripe Flap Trouser (as in Flap Trouser Black.png) — pixel-faithful colorway and construction: two triangular front flap panels, outer edge flush and stitched along the true leg seam with no flare, inner diagonal edge the only free fold, plain waistband with no belt loops, no monogram, no tag or logo of any kind. Wider still-life crop showing the flap panel's triangular silhouette and soft drape as the fabric is arranged on an oval brushed-pewter tray, tray edge and near-black warm-brown backdrop visible. A slim gold ring rests beside the fabric. Soft single-source top-left light, gentle shadow falloff, warm neutral color temperature. Minimal moody studio still-life product photography, no model, no environment, subtle film-grain texture. Square or vertical framing.",
+      "duration_s": 3.5,
+      "transition_in": "cut"
+    }
+  ]
+}
