@@ -133,7 +133,103 @@ for tag, seed in [("a", 2), ("b", 3)]:
     paste_centered(bg, scaled_logo(LOGO_CHARCOAL, int(W * 0.34)), W * 0.5, H * 0.46)
     save(bg, f"02_paper_bone_{tag}")
 
-# 5: brand colour palette reveal card
+# phone mockup: clean device silhouette + splash screen, no gimmicky hand
+def phone_mockup(fill_screen):
+    img = solid_with_vignette((20, 20, 20), strength=0.05).convert("RGBA")
+    draw = ImageDraw.Draw(img)
+    pw, ph = int(W * 0.6), int(W * 0.6 * 2.05)
+    px, py = (W - pw) // 2, int(H * 0.5 - ph * 0.5)
+    draw.rounded_rectangle([px - 16, py - 16, px + pw + 16, py + ph + 16], radius=70, fill=(8, 8, 8))
+    draw.rounded_rectangle([px - 16, py - 16, px + pw + 16, py + ph + 16], radius=70, outline=(60, 60, 60), width=2)
+    screen = Image.new("RGBA", (pw, ph), (0, 0, 0, 0))
+    sdraw = ImageDraw.Draw(screen)
+    screen.paste(Image.new("RGB", (pw, ph), (0, 0, 0)), (0, 0))
+    fill_screen(screen, sdraw, pw, ph)
+    mask = Image.new("L", (pw, ph), 0)
+    ImageDraw.Draw(mask).rounded_rectangle([0, 0, pw, ph], radius=52, fill=255)
+    img.paste(screen, (px, py), mask)
+    # notch
+    nw, nh = int(pw * 0.32), int(ph * 0.022)
+    draw.rounded_rectangle([px + pw / 2 - nw / 2, py + 14, px + pw / 2 + nw / 2, py + 14 + nh],
+                            radius=nh, fill=(8, 8, 8))
+    return img
+
+
+def splash_screen(screen, sdraw, pw, ph):
+    sdraw.rectangle([0, 0, pw, ph], fill=OXBLOOD)
+    logo = scaled_logo(LOGO_BONE, int(pw * 0.4))
+    screen.alpha_composite(logo, (int(pw / 2 - logo.width / 2), int(ph * 0.42 - logo.height / 2)))
+    tracked_text(sdraw, (pw / 2, ph * 0.58), "GEN ATELIÉR", font(MANROPE_SEMI, int(pw * 0.072)), BONE, tracking=4)
+
+
+bg = phone_mockup(splash_screen)
+save(bg, "03_phone_splash_a")
+bg = phone_mockup(splash_screen)
+save(bg, "03_phone_splash_b")
+
+
+def home_screen(screen, sdraw, pw, ph):
+    sdraw.rectangle([0, 0, pw, ph], fill=(245, 245, 240))
+    sdraw.text((pw * 0.08, ph * 0.045), "9:41", font=font(MANROPE_SEMI, int(pw * 0.055)), fill=CHARCOAL, anchor="lm")
+    cols, rows = 4, 5
+    margin = pw * 0.09
+    cell = (pw - margin * 2) / cols
+    icon_size = int(cell * 0.62)
+    highlight = 6
+    idx = 0
+    for r in range(rows):
+        for c in range(cols):
+            idx += 1
+            cx = margin + c * cell + cell / 2
+            cy = ph * 0.14 + r * cell * 1.18 + cell / 2
+            if idx == highlight:
+                sdraw.rounded_rectangle([cx - icon_size / 2, cy - icon_size / 2, cx + icon_size / 2, cy + icon_size / 2],
+                                         radius=icon_size * 0.26, fill=OXBLOOD)
+                logo = scaled_logo(LOGO_BONE, int(icon_size * 0.6))
+                screen.alpha_composite(logo, (int(cx - logo.width / 2), int(cy - logo.height / 2)))
+            else:
+                sdraw.rounded_rectangle([cx - icon_size / 2, cy - icon_size / 2, cx + icon_size / 2, cy + icon_size / 2],
+                                         radius=icon_size * 0.26, fill=(214, 214, 204))
+    tracked_text(sdraw, (pw / 2, ph * 0.14 + rows * cell * 1.18 + cell * 0.55), "GEN ATELIÉR",
+                 font(MANROPE_SEMI, int(pw * 0.06)), CHARCOAL, tracking=3)
+
+
+bg = phone_mockup(home_screen)
+save(bg, "04_phone_home")
+
+# hang tag mockup on sky, laid flat (brand's own stationery motif)
+img = solid_with_vignette(SKY, strength=0.22).convert("RGBA")
+draw = ImageDraw.Draw(img)
+tw, th = int(W * 0.46), int(W * 0.46 * 1.5)
+tag = Image.new("RGBA", (tw + 40, th + 40), (0, 0, 0, 0))
+tdraw = ImageDraw.Draw(tag)
+tdraw.rectangle([20, 20, tw + 20, th + 20], fill=BONE)
+hole_r = 15
+hx, hy = tw / 2 + 20, 20 + 36
+tdraw.ellipse([hx - hole_r, hy - hole_r, hx + hole_r, hy + hole_r], fill=SKY)
+logo_t = scaled_logo(LOGO_CHARCOAL, int(tw * 0.42))
+tag.alpha_composite(logo_t, (int(tw / 2 + 20 - logo_t.width / 2), int(th * 0.38)))
+tdraw.line([(30, th * 0.78), (tw + 10, th * 0.78)], fill=LINE, width=2)
+tdraw.text((tw / 2 + 20, th * 0.86), "size: just right", font=font(GARAMOND_ITALIC, int(tw * 0.1)),
+           fill=CHARCOAL, anchor="mm")
+tag = tag.rotate(-5, expand=True, resample=Image.BICUBIC)
+paste_centered(img, tag, W * 0.5, H * 0.42)
+save(img, "05_hangtag")
+
+# real product hero, using existing product photography, with wordmark
+candidates = ["Wrap Trouser Black.png", "Flap Trouser Black.png", "Wrap Trouser Beige.png"]
+product_path = next((ROOT / c for c in candidates if (ROOT / c).exists()), None)
+if product_path:
+    prod = Image.open(product_path).convert("RGBA")
+    canvas = solid_with_vignette(BONE, strength=0.12).convert("RGBA")
+    scale = min(W * 0.86 / prod.width, H * 0.78 / prod.height)
+    prod_r = prod.resize((int(prod.width * scale), int(prod.height * scale)), Image.LANCZOS)
+    paste_centered(canvas, prod_r, W * 0.52, H * 0.48)
+    draw = ImageDraw.Draw(canvas)
+    tracked_text(draw, (W / 2, H * 0.93), "GEN ATELIÉR", font(MANROPE_SEMI, int(W * 0.05)), CHARCOAL, tracking=6)
+    save(canvas, "06_product_hero")
+
+# 7: brand colour palette reveal card
 img = Image.new("RGBA", (W, H), (*BONE, 255))
 draw = ImageDraw.Draw(img)
 pad = int(W * 0.07)
@@ -161,29 +257,29 @@ for i, (rgb, name_txt, hexcode, txtcol) in enumerate(cards):
     draw.text((x0 + card_w * 0.12, top + card_h * 0.86), hexcode, font=f_hex, fill=txtcol)
 f_top = font(MANROPE_LIGHT, int(W * 0.065))
 draw.text((W / 2, top - H * 0.07), "the palette", font=f_top, fill=CHARCOAL, anchor="mm")
-save(img, "05_palette_card")
+save(img, "07_palette_card")
 
-# 6-11: logo cycling across flat colour-block backgrounds
+# 8-13: logo cycling across flat colour-block backgrounds
 swatches = [
-    (OXBLOOD, LOGO_BONE, "06_swatch_oxblood"),
-    (CHARCOAL, LOGO_BONE, "07_swatch_charcoal"),
-    (INK_MUTED, LOGO_BONE, "08_swatch_ink"),
-    (BONE, LOGO_CHARCOAL, "09_swatch_bone"),
-    (SKY, LOGO_CHARCOAL, "10_swatch_sky"),
-    (DEEP_SKY, LOGO_BONE, "11_swatch_deepsky"),
+    (OXBLOOD, LOGO_BONE, "08_swatch_oxblood"),
+    (CHARCOAL, LOGO_BONE, "09_swatch_charcoal"),
+    (INK_MUTED, LOGO_BONE, "10_swatch_ink"),
+    (BONE, LOGO_CHARCOAL, "11_swatch_bone"),
+    (SKY, LOGO_CHARCOAL, "12_swatch_sky"),
+    (DEEP_SKY, LOGO_BONE, "13_swatch_deepsky"),
 ]
 for rgb, logo, name in swatches:
     im = solid_with_vignette(rgb, strength=0.2).convert("RGBA")
     paste_centered(im, scaled_logo(logo, int(W * 0.4)), W * 0.5, H * 0.5)
     save(im, name)
 
-# 12: end card
+# 14: end card
 img = solid_with_vignette(CHARCOAL, strength=0.3).convert("RGBA")
 draw = ImageDraw.Draw(img)
 paste_centered(img, scaled_logo(LOGO_BONE, int(W * 0.3)), W * 0.5, H * 0.42)
 tracked_text(draw, (W / 2, H * 0.52), "GEN ATELIÉR", font(MANROPE_SEMI, int(W * 0.05)), BONE, tracking=8)
 draw.text((W / 2, H * 0.575), "made for how you move", font=font(GARAMOND_ITALIC, int(W * 0.045)),
           fill=LINE, anchor="mm")
-save(img, "12_endcard")
+save(img, "14_endcard")
 
 print("done")
