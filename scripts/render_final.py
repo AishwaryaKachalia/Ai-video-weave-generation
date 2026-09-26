@@ -23,7 +23,7 @@ import numpy as np
 
 W, H = 720, 1280
 FPS = 30
-TICK_FRAMES = 6
+TICK_FRAMES = 30  # 1.0s/tick while reviewing composition — was 6 (0.2s), too fast to read
 
 # Measured envelope of every event box across the whole reference (see
 # motion_prototype.py) — the region each source image is cover-fit into;
@@ -81,38 +81,39 @@ def make_paper_texture(w, h, seed=3):
     rng = np.random.default_rng(seed)
     base = np.full((h, w, 3), (237, 231, 219), dtype=np.float64)
 
-    fine = rng.normal(0, 1.5, (h, w, 1))
+    # fine matte grain, left mostly unblurred so it reads as paper, not haze
+    fine = rng.normal(0, 5.5, (h, w, 1))
     base += fine
 
-    coarse = rng.normal(0, 10, (h // 24 + 1, w // 24 + 1, 1))
-    coarse_up = Image.fromarray((coarse[..., 0] + 128).astype(np.uint8)).resize((w, h), Image.BICUBIC)
-    coarse_up = np.array(coarse_up).astype(np.float64)[..., None] - 128
-    base += coarse_up
+    # very subtle broad tone variation only (large blocks, tiny amplitude)
+    tone = rng.normal(0, 4, (h // 40 + 1, w // 40 + 1, 1))
+    tone_up = Image.fromarray((tone[..., 0] + 128).astype(np.uint8)).resize((w, h), Image.BICUBIC)
+    tone_up = np.array(tone_up).astype(np.float64)[..., None] - 128
+    base += tone_up
 
-    # a handful of long faint fiber streaks, like pressed paper pulp
+    # a handful of short faint fiber flecks, like pressed paper pulp
     fiber = np.zeros((h, w), dtype=np.float64)
-    for _ in range(60):
+    for _ in range(50):
         y = rng.integers(0, h)
         x0 = rng.integers(0, w)
-        length = rng.integers(30, 140)
+        length = rng.integers(15, 50)
         angle = rng.uniform(-0.3, 0.3)
-        strength = rng.uniform(4, 10)
+        strength = rng.uniform(5, 12)
         for t in range(length):
             xx = int(x0 + t)
             yy = int(y + t * angle)
             if 0 <= xx < w and 0 <= yy < h:
                 fiber[yy, xx] += strength
-    fiber_img = Image.fromarray(np.clip(fiber, 0, 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(0.8))
-    base -= np.array(fiber_img).astype(np.float64)[..., None] * 0.5
+    base -= fiber[..., None] * 0.4
 
     yy, xx = np.mgrid[0:h, 0:w]
     cx, cy = w / 2, h / 2
     dist = np.sqrt(((xx - cx) / w) ** 2 + ((yy - cy) / h) ** 2)
-    vignette = 1.0 - np.clip(dist * 0.35, 0, 0.10)
+    vignette = 1.0 - np.clip(dist * 0.35, 0, 0.08)
     base *= vignette[..., None]
 
     img = Image.fromarray(np.clip(base, 0, 255).astype(np.uint8))
-    img = img.filter(ImageFilter.GaussianBlur(2.2))
+    img = img.filter(ImageFilter.GaussianBlur(0.4))
     return img
 
 
@@ -149,29 +150,30 @@ def make_placeholder_card(letter, color, cw, ch):
     return canvas
 
 
-def build_source_frame(letter, image_path, paper_texture):
+def make_piece(letter, image_path, bw, bh):
+    """A single placed 'photo': the source image (or placeholder) freshly
+    cover-fit to THIS box's own size, so every fragment is a complete,
+    well-composed crop of the subject on its own — not a window cut out
+    of one bigger, fixed composite shared across all fragments."""
+    if image_path is not None:
+        return cover_fit(load_rgb(image_path), bw, bh)
+    return make_placeholder_card(letter, PLACEHOLDER_COLORS[letter], bw, bh)
+
+
+def build_base_frame(letter, image_path, paper_texture):
+    """The very first frame (tick0): source A cover-fit into the overall
+    card region, bordered, sitting on the paper backdrop."""
     x0, y0, x1, y1 = CARD_REGION
     cw, ch = x1 - x0, y1 - y0
     canvas = paper_texture.copy()
 
-    if image_path is not None:
-        card_content = cover_fit(load_rgb(image_path), cw, ch)
-    else:
-        card_content = make_placeholder_card(letter, PLACEHOLDER_COLORS[letter], cw, ch)
+    card_content = make_piece(letter, image_path, cw, ch)
 
     border = 10
     bordered = Image.new("RGB", (cw + border * 2, ch + border * 2), (255, 253, 250))
     bordered.paste(card_content, (border, border))
-
-    shadow = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    sd = ImageDraw.Draw(shadow)
-    sd.rectangle([x0 - border + 6, y0 - border + 12, x1 + border + 6, y1 + border + 12], fill=(0, 0, 0, 60))
-    shadow = shadow.filter(ImageFilter.GaussianBlur(18))
-
-    base = canvas.convert("RGBA")
-    base.alpha_composite(shadow)
-    base.paste(bordered, (x0 - border, y0 - border))
-    return base.convert("RGB")
+    canvas.paste(bordered, (x0 - border, y0 - border))
+    return canvas
 
 
 def main():
@@ -190,12 +192,8 @@ def main():
         slot_images[letter] = Path(path)
 
     paper = make_paper_texture(W, H)
-    source_frames = {
-        letter: build_source_frame(letter, slot_images.get(letter), paper)
-        for letter in PLACEHOLDER_COLORS
-    }
+    canvas = build_base_frame("A", slot_images.get("A"), paper)
 
-    canvas = source_frames["A"].copy()
     by_tick = {}
     for tick, box, source in EVENTS:
         by_tick.setdefault(tick, []).append((box, source))
@@ -217,7 +215,7 @@ def main():
         for tick in range(1, max_tick + 1):
             for box, source in by_tick.get(tick, []):
                 x0, y0, x1, y1 = box
-                piece = source_frames[source].crop((x0, y0, x1, y1))
+                piece = make_piece(source, slot_images.get(source), x1 - x0, y1 - y0)
                 canvas.paste(piece, (x0, y0))
             for _ in range(TICK_FRAMES):
                 save(canvas)
