@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Render a "photo-card shatter" transition edit from a list of still images.
+"""Render a "mosaic hard-cut" transition edit from a list of still images.
 
-Recreates the reference mechanic: static camera, each beat is a still image
-held on screen, and the cut to the next beat happens by splitting the
-outgoing image into four quadrants that shatter outward toward the corners
-(with a soft drop shadow), revealing the next image sitting beneath.
+Recreates the reference mechanic: static camera, no crossfades, no motion.
+The frame is a static 2x2 grid; each quadrant independently hard-cuts to
+the next beat's image at its own instant (three quadrants together, one
+lagging a beat behind), producing a brief two-image mosaic before all four
+quadrants resolve to show the same picture.
 
 Each beat is styled one of two ways:
   - "card":      contained on a cream backdrop with a bordered photo-card
@@ -36,16 +37,14 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFilter
 
-CORNERS = {
-    "tl": (-1, -1),
-    "tr": (1, -1),
-    "bl": (-1, 1),
-    "br": (1, 1),
-}
+QUADRANTS = ["tl", "tr", "bl", "br"]
 
-
-def ease_in_cubic(t: float) -> float:
-    return t ** 3
+# Per-transition cut schedule: fraction of the transition window at which
+# each quadrant hard-cuts to the next image. Three cut together early, one
+# lags behind — matches the observed reference (a rotating laggard quadrant
+# each transition, not the same one every time).
+LAGGARD_CUT_FRAC = 0.75
+EARLY_CUT_FRAC = 0.15
 
 
 def load_rgb(path: Path) -> Image.Image:
@@ -118,34 +117,18 @@ def quadrant_boxes(w: int, h: int):
     }
 
 
-def shatter_frame(outgoing: Image.Image, incoming: Image.Image, t: float, w: int, h: int) -> Image.Image:
-    eased = ease_in_cubic(t)
-    max_travel_x = w * 0.85
-    max_travel_y = h * 0.85
-
-    frame = incoming.convert("RGBA")
+def mosaic_frame(outgoing: Image.Image, incoming: Image.Image, t: float, w: int, h: int,
+                  laggard: str) -> Image.Image:
+    """t is fraction [0,1] elapsed in the transition window. Each quadrant
+    hard-cuts (no blend, no movement) from outgoing's crop to incoming's
+    crop once t passes its cut fraction; the laggard quadrant cuts late."""
+    frame = Image.new("RGB", (w, h))
     boxes = quadrant_boxes(w, h)
-
-    shadow_layer = Image.new("RGBA", (w, h), (0, 0, 0, 0))
-    sd = ImageDraw.Draw(shadow_layer)
-
-    pieces = []
-    for name, (bx0, by0, bx1, by1) in boxes.items():
-        dx, dy = CORNERS[name]
-        ox = round(dx * eased * max_travel_x)
-        oy = round(dy * eased * max_travel_y)
-        piece = outgoing.crop((bx0, by0, bx1, by1))
-        pieces.append((piece, bx0 + ox, by0 + oy, bx1 - bx0, by1 - by0))
-        sd.rectangle([bx0 + ox + 6, by0 + oy + 10, bx0 + ox + (bx1 - bx0) + 6, by0 + oy + (by1 - by0) + 10],
-                     fill=(0, 0, 0, int(70 * (1 - eased) + 20)))
-
-    shadow_layer = shadow_layer.filter(ImageFilter.GaussianBlur(16))
-    frame.alpha_composite(shadow_layer)
-
-    for piece, px, py, pw, ph in pieces:
-        frame.paste(piece, (px, py))
-
-    return frame.convert("RGB")
+    for name, box in boxes.items():
+        cut_frac = LAGGARD_CUT_FRAC if name == laggard else EARLY_CUT_FRAC
+        src = incoming if t >= cut_frac else outgoing
+        frame.paste(src.crop(box), box[:2])
+    return frame
 
 
 def render(config: dict, base_dir: Path, out_path: Path) -> None:
@@ -175,9 +158,10 @@ def render(config: dict, base_dir: Path, out_path: Path) -> None:
             if i < len(prepared) - 1:
                 trans_frames = max(round(transition_s * fps), 1)
                 nxt = prepared[i + 1]
+                laggard = QUADRANTS[i % len(QUADRANTS)]
                 for f in range(trans_frames):
                     t = (f + 1) / trans_frames
-                    save(shatter_frame(img, nxt, t, w, h))
+                    save(mosaic_frame(img, nxt, t, w, h, laggard))
 
         subprocess.run(
             ["ffmpeg", "-y", "-framerate", str(fps), "-i", str(tmp_dir / "f_%05d.png"),
