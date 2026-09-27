@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
-"""Stitch assets/frames/*.png into the final Gen Ateliér logo-reveal reel,
-matching the reference video's fast-cut, colour-cycling pace.
+"""Stitch assets/frames/*.png into the final Gen Ateliér logo-reveal reel.
+
+Hard cuts only -- no zoom, no pan, no crossfade -- matching the reference
+video's flash-cut pace. Every frame already carries the logo at the exact
+same fixed position/size; this script only decides how long each frame
+holds before the next hard cut.
 
 Usage:
     python3 scripts/stitch_brand_reel.py --out output/gen-atelier-reveal.mp4
 """
 import argparse
 import subprocess
-import sys
 import tempfile
 from pathlib import Path
 
@@ -15,44 +18,30 @@ ROOT = Path(__file__).resolve().parent.parent
 FRAMES = ROOT / "assets" / "frames"
 W, H, FPS = 1080, 1920, 30
 
-# (frame stem, duration_s, zoom start, zoom end)
+# (frame stem, duration_s) -- hard cut to the next, no motion within a hold.
 SEQUENCE = [
-    ("01_paper_oxblood_a", 0.20, 1.00, 1.05),
-    ("01_paper_oxblood_b", 0.20, 1.05, 1.10),
-    ("02_paper_bone_a", 0.20, 1.00, 1.05),
-    ("02_paper_bone_b", 0.20, 1.05, 1.10),
-    ("03_phone_splash_a", 0.28, 1.00, 1.05),
-    ("03_phone_splash_b", 0.22, 1.05, 1.09),
-    ("04_phone_home", 0.45, 1.00, 1.05),
-    ("05_hangtag", 0.42, 1.00, 1.05),
-    ("06_product_hero", 0.60, 1.00, 1.05),
-    ("07_palette_card", 1.05, 1.00, 1.04),
-    ("08_swatch_oxblood", 0.24, 1.00, 1.06),
-    ("09_swatch_charcoal", 0.24, 1.00, 1.06),
-    ("10_swatch_ink", 0.22, 1.00, 1.06),
-    ("11_swatch_bone", 0.22, 1.00, 1.06),
-    ("12_swatch_sky", 0.22, 1.00, 1.06),
-    ("13_swatch_deepsky", 0.22, 1.00, 1.06),
-    ("08_swatch_oxblood", 0.15, 1.06, 1.10),
-    ("11_swatch_bone", 0.15, 1.06, 1.10),
-    ("09_swatch_charcoal", 0.15, 1.06, 1.10),
-    ("12_swatch_sky", 0.15, 1.06, 1.10),
-    ("14_endcard", 1.30, 1.00, 1.05),
+    ("01_paper_a", 0.20),
+    ("01_paper_b", 0.20),
+    ("02_stone_a", 0.20),
+    ("02_stone_b", 0.20),
+    ("03_color_oxblood", 0.18),
+    ("04_color_charcoal", 0.18),
+    ("05_color_ink", 0.16),
+    ("06_color_bone", 0.16),
+    ("07_color_sky", 0.16),
+    ("08_color_deepsky", 0.16),
+    ("03_color_oxblood", 0.14),
+    ("06_color_bone", 0.14),
+    ("04_color_charcoal", 0.14),
+    ("07_color_sky", 0.14),
+    ("09_endcard", 0.90),
 ]
 
 
-def build_clip(stem, duration, z0, z1, tmp_dir, idx):
+def build_clip(stem, duration, tmp_dir, idx):
     src = FRAMES / f"{stem}.png"
     dst = tmp_dir / f"{idx:03d}-{stem}.mp4"
-    frames = max(round(duration * FPS), 1)
-    fm1 = max(frames - 1, 1)
-    ease = f"(1-pow(1-min(on/{fm1},1),3))"
-    z_expr = f"{z0}+({z1}-{z0})*{ease}"
-    vf = (
-        f"scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},"
-        f"zoompan=z='{z_expr}':d=1:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s={W}x{H},"
-        f"fps={FPS}"
-    )
+    vf = f"scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps={FPS}"
     cmd = [
         "ffmpeg", "-y", "-loop", "1", "-i", str(src), "-t", str(duration),
         "-vf", vf, "-c:v", "libx264", "-pix_fmt", "yuv420p", "-an", str(dst),
@@ -69,10 +58,7 @@ def main():
 
     with tempfile.TemporaryDirectory() as tmp:
         tmp_dir = Path(tmp)
-        clips = [
-            build_clip(stem, dur, z0, z1, tmp_dir, i)
-            for i, (stem, dur, z0, z1) in enumerate(SEQUENCE)
-        ]
+        clips = [build_clip(stem, dur, tmp_dir, i) for i, (stem, dur) in enumerate(SEQUENCE)]
         list_file = tmp_dir / "list.txt"
         list_file.write_text("".join(f"file '{c.resolve()}'\n" for c in clips))
         subprocess.run(
