@@ -161,18 +161,13 @@ def make_piece(letter, image_path, bw, bh):
 
 
 def build_base_frame(letter, image_path, paper_texture):
-    """The very first frame (tick0): source A cover-fit into the overall
-    card region, bordered, sitting on the paper backdrop."""
+    """The very first frame (tick0): source A cover-fit directly into the
+    card region, no border, sitting on the paper backdrop."""
     x0, y0, x1, y1 = CARD_REGION
     cw, ch = x1 - x0, y1 - y0
     canvas = paper_texture.copy()
-
     card_content = make_piece(letter, image_path, cw, ch)
-
-    border = 10
-    bordered = Image.new("RGB", (cw + border * 2, ch + border * 2), (255, 253, 250))
-    bordered.paste(card_content, (border, border))
-    canvas.paste(bordered, (x0 - border, y0 - border))
+    canvas.paste(card_content, (x0, y0))
     return canvas
 
 
