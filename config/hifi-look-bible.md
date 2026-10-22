@@ -32,3 +32,5 @@ High-contrast/harsh look, over-sharpened or plastic AI skin, CGI gloss, oversatu
 - Never put the product name in prose where the model could print it. Refer to "the exact can in image 1". Never invent can text.
 - Horizontal 16:9 unless told otherwise. Sunset-to-night timing only.
 - Show every generated frame to the user in chat. Always get approval before spending credits.
+- FLASH must look real: hard direct on-camera flash, bright punchy subjects with specular skin highlights, hard-edged shadow cast on the wall/ground behind them, background falls to near-black with only dim blurred ambient lights. Never evenly lit, never "warm lamp-lit" pretending to be flash.
+- FASHION must be Gen Z (24-34 per brief): baby tees, oversized boxy tees, baggy/low-rise/ripped denim, cargos, wallet chains, beaded and layered necklaces, bandanas, beanies, tinted sunglasses, platform and chunky sneakers, tattoos. No real brand logos or patches anywhere.
