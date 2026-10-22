@@ -43,3 +43,10 @@ High-contrast/harsh look, over-sharpened or plastic AI skin, CGI gloss, oversatu
 
 ## DELIVERABLES (per storyboard + user)
 - Every approved frame needs BOTH a 16:9 and a 9:16 version, and every video is generated twice (16:9 investor master, 9:16 mobile/WhatsApp). Make the 9:16 still first (re-framed from the approved 16:9 still, same people/can/look), then animate each from its own still. Never centre-crop a 16:9 still into 9:16.
+
+## CORRECTIONS (user feedback after city/crowd + cheers frames) — these override earlier flash notes
+- GRADE LOCK: match style-refs/hifi/ref-1..4 ONLY. Soft, warm, filmic: gentle fill-flash BLENDED with ambient practical light, soft contrast, lifted (never crushed) blacks, creamy highlights, natural skin, fine grain. NO hard-edged flash shadows, NO specular glare on skin, NO punchy/contrasty/saturated look, NO pitch-black backgrounds. Do NOT use night-dance-ref.webp as a grade reference (it is too contrasty); use it for framing energy only.
+- NO CANS IN PUBLIC: never show beer cans or drinking outdoors in public places (streets, promenades, festivals, concerts, cities). Cans only in private/licensed settings: homes, private terraces, bars, restaurants. City/crowd frames show PEOPLE and energy only.
+- CROWDS must be varied and real: different outfits, expressions, phones, gestures. Never a crowd all holding the same product, never one object held by many hands.
+- CANS must look photographed, not rendered: partly hidden by hands/fingers, label partly turned or obscured, wet, soft ambient reflections, slight angle/tilt, not perfectly clean or evenly lit. Hero can shots are the only place for a pristine full label. For cheers, glasses of golden lager with the can in frame (on table or in hand) is acceptable.
+- REALISM FIRST: every frame must read as a real candid photograph. If a frame looks staged, CGI or over-clean, redo it before showing it.
