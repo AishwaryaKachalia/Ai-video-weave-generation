@@ -24,7 +24,10 @@ High-contrast/harsh look, over-sharpened or plastic AI skin, CGI gloss, oversatu
 ## HARD RULES (added after rejected v1/v2 — user feedback)
 - Cans are NEVER hero-posed or held up to camera. They are incidental: in hands at waist/chest, on tables, ledges, ground — mid-frame or background, label partly or fully visible, like a real candid photo. Camera focuses on people and moments, not the product.
 - Match the REFERENCE photos' feel: candid, imperfect framing, direct flash on faces, warm dark falloff, visible grain, slight blur/motion, people not looking at camera.
-- Setting must be a REALISTIC Mumbai terrace house party: low/mid-rise concrete apartment buildings, water tanks, AC units, hazy warm dusk sky, cheap string lights/bulbs hung unevenly, plastic/cane chairs, speaker, folding table with snacks, ice bucket. NO glossy glass skyline, no stock-photo rooftop bar.
+- Setting: PREMIUM upper-middle-class Mumbai (Bandra/Worli/Juhu vibe): a clean, stylish apartment terrace or rooftop lounge at NIGHT — wooden deck, lounge seating, warm lanterns/string lights, plants, sleek high-rise or sea-facing building lights blurred far behind. NO slums, tin roofs, water tanks, cracked concrete, plastic chairs, or fake glossy CGI skyline.
+- Time: NIGHT (dark sky) for party frames. Skate frame stays sunset.
+- Primary framing ref: style-refs/hifi/night-dance-ref.webp — tight, close, flash-lit dancing/laughing faces, hands and drinks in frame, dark background, strong flash falloff.
+- CAN ACCURACY: cans must be exact (silver top, navy body, cream HI/FI, gold HIFI BEER CO. + STRONG LAGER, white ICE COLD BEER). Keep cans large enough in frame to render text correctly (hand-held, 1/5 of frame height or more); if text is wrong, composite the real can art in post rather than regenerating.
 - Real, ordinary, attractive young Indian people in everyday party clothes (kurtas, tees, shirts, jeans, slip dresses), natural uneven skin, no airbrushed models.
 - Never put the product name in prose where the model could print it. Refer to "the exact can in image 1". Never invent can text.
 - Horizontal 16:9 unless told otherwise. Sunset-to-night timing only.
