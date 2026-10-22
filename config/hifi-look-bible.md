@@ -40,3 +40,6 @@ High-contrast/harsh look, over-sharpened or plastic AI skin, CGI gloss, oversatu
 - Generate 3s clips (matching storyboard slots), not 5s: drift and face breakdown happen after ~2.5s. Fewer people in frame, and no hands or arms crossing faces in the source still.
 - Prompt every video: "faces stay stable and unchanged, no hand or arm passes in front of any face, no new people enter the frame".
 - No zoom, push-in, slow motion or flash/lens flare unless the storyboard asks. Natural handheld, real-time motion, warm grade locked.
+
+## DELIVERABLES (per storyboard + user)
+- Every approved frame needs BOTH a 16:9 and a 9:16 version, and every video is generated twice (16:9 investor master, 9:16 mobile/WhatsApp). Make the 9:16 still first (re-framed from the approved 16:9 still, same people/can/look), then animate each from its own still. Never centre-crop a 16:9 still into 9:16.
