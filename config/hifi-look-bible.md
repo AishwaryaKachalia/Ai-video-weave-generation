@@ -20,3 +20,12 @@ High-contrast/harsh look, over-sharpened or plastic AI skin, CGI gloss, oversatu
 
 ## Prompt prefix (prepend to every shot)
 "Candid 35mm analog film photograph, Kodak Portra-style warm amber grade, soft contrast with lifted blacks, subtle direct-flash blended with warm practical light, shallow depth of field, fine natural film grain, soft halation, premium editorial nightlife, natural skin texture. The Hi-Fi 'Layer Zero' navy can, exactly as in the reference image, unaltered label and text, is clearly present in frame."
+
+## HARD RULES (added after rejected v1/v2 — user feedback)
+- Cans are NEVER hero-posed or held up to camera. They are incidental: in hands at waist/chest, on tables, ledges, ground — mid-frame or background, label partly or fully visible, like a real candid photo. Camera focuses on people and moments, not the product.
+- Match the REFERENCE photos' feel: candid, imperfect framing, direct flash on faces, warm dark falloff, visible grain, slight blur/motion, people not looking at camera.
+- Setting must be a REALISTIC Mumbai terrace house party: low/mid-rise concrete apartment buildings, water tanks, AC units, hazy warm dusk sky, cheap string lights/bulbs hung unevenly, plastic/cane chairs, speaker, folding table with snacks, ice bucket. NO glossy glass skyline, no stock-photo rooftop bar.
+- Real, ordinary, attractive young Indian people in everyday party clothes (kurtas, tees, shirts, jeans, slip dresses), natural uneven skin, no airbrushed models.
+- Never put the product name in prose where the model could print it. Refer to "the exact can in image 1". Never invent can text.
+- Horizontal 16:9 unless told otherwise. Sunset-to-night timing only.
+- Show every generated frame to the user in chat. Always get approval before spending credits.
