@@ -34,3 +34,9 @@ High-contrast/harsh look, over-sharpened or plastic AI skin, CGI gloss, oversatu
 - Show every generated frame to the user in chat. Always get approval before spending credits.
 - FLASH must look real: hard direct on-camera flash, bright punchy subjects with specular skin highlights, hard-edged shadow cast on the wall/ground behind them, background falls to near-black with only dim blurred ambient lights. Never evenly lit, never "warm lamp-lit" pretending to be flash.
 - FASHION must be Gen Z (24-34 per brief): baby tees, oversized boxy tees, baggy/low-rise/ripped denim, cargos, wallet chains, beaded and layered necklaces, bandanas, beanies, tinted sunglasses, platform and chunky sneakers, tattoos. No real brand logos or patches anywhere.
+
+## VIDEO RULES (added after rooftop clip face distortion)
+- Faces must never distort. Before showing ANY clip, inspect a 4fps contact sheet of the whole clip, crop to every visible face, and trim to the last clean frame. Never show a clip with a melting, smeared or blank face.
+- Generate 3s clips (matching storyboard slots), not 5s: drift and face breakdown happen after ~2.5s. Fewer people in frame, and no hands or arms crossing faces in the source still.
+- Prompt every video: "faces stay stable and unchanged, no hand or arm passes in front of any face, no new people enter the frame".
+- No zoom, push-in, slow motion or flash/lens flare unless the storyboard asks. Natural handheld, real-time motion, warm grade locked.
