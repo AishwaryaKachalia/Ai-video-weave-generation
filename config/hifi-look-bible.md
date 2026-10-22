@@ -50,3 +50,11 @@ High-contrast/harsh look, over-sharpened or plastic AI skin, CGI gloss, oversatu
 - CROWDS must be varied and real: different outfits, expressions, phones, gestures. Never a crowd all holding the same product, never one object held by many hands.
 - CANS must look photographed, not rendered: partly hidden by hands/fingers, label partly turned or obscured, wet, soft ambient reflections, slight angle/tilt, not perfectly clean or evenly lit. Hero can shots are the only place for a pristine full label. For cheers, glasses of golden lager with the can in frame (on table or in hand) is acceptable.
 - REALISM FIRST: every frame must read as a real candid photograph. If a frame looks staged, CGI or over-clean, redo it before showing it.
+
+## FINAL CORRECTIONS (user, after city/cheers/concert review)
+- NO post-composited can labels (looked fake). House party v1 and birthday v2 ORIGINALS are approved as-is. Can accuracy comes from generation only: few cans, large, upright, label to camera.
+- LOGO: the can logo is "HI" over "FI" in cream blocks, gold "HIFI BEER CO." above, gold "STRONG LAGER" below. NEVER any star, dot or extra symbol between letters.
+- CHEERS: a good cheers shot only. No birthday cake/bunting/balloons/candles. MIXED group (women AND men, never all men). Natural, candid, believable hands.
+- CONCERT: the crowd FACES THE STAGE. Camera is on the stage side, so faces look up toward/past the camera at the performer; never the crowd with its back to the stage.
+- REALISM BENCHMARK: shots/frames/hifi/city-mumbai-marinedrive-v2.png (Marine Drive promenade). Every new frame must look as natural, unstaged and un-symmetrical as that one. Pass it as a reference image.
+- LOCATIONS must be REAL and distinct, with real clutter (wires, vendors, signage, vehicles, weather), colour from the environment, and DRESS MATCHED TO THE CITY AND OCCASION. Do not dress everyone in baby tees, oversized tees and baggy jeans.
