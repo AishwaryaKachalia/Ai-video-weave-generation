@@ -5,7 +5,9 @@ Usage: python3 scripts/build_teaser.py out.mp4 [--edit shots/hifi-teaser.edit.js
            [--ratio 16x9|9x16] [--audio temp.wav] [--no-text]
 
 Cuts: "clip" (video from clips/hifi/web/), "still" (photo path from the repo root,
-slow push-in), or neither (black). Beat lengths are frame-exact.
+slow push-in; optional focus_x/focus_y 0..1 choose the crop window), "card" (navy
+type card), "split" ([a, b] two cuts joined as a split-screen match cut), or neither
+(black). Beat lengths are frame-exact. Text items may carry "count": {from,to,t0,t1}.
 """
 import argparse
 import json
@@ -18,6 +20,7 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parent.parent
 FONT = ROOT / "assets/fonts/Anton-Regular.ttf"
 CLIPS = ROOT / "clips/hifi/web"
+NAVY = "0x0E1B4D"
 
 
 def run(cmd):
@@ -47,11 +50,28 @@ def prep_still(path, tmp):
 def render_cut(cut, out, w, h, fps, frames, tmp):
     dim = f",eq=brightness=-{cut['dim'] * 0.35:.2f}:saturation=1.1" if cut.get("dim") else ""
     enc = ["-c:v", "libx264", "-crf", "14", "-preset", "fast", "-pix_fmt", "yuv420p"]
+    if cut.get("split"):
+        a, b = cut["split"]
+        pa, pb = tmp / (out.stem + "_a.mp4"), tmp / (out.stem + "_b.mp4")
+        render_cut({**a, "beat": cut["beat"]}, pa, w, h, fps, frames, tmp)
+        render_cut({**b, "beat": cut["beat"]}, pb, w, h, fps, frames, tmp)
+        hw = w // 2
+        fc = (f"[0:v]crop={hw}:{h}:{(w - hw) // 2}:0[l];[1:v]crop={hw}:{h}:{(w - hw) // 2}:0[r];"
+              f"[l][r]hstack,drawbox=x={hw - 3}:y=0:w=6:h={h}:color=white@0.9:t=fill,format=yuv420p")
+        run(["ffmpeg", "-y", "-i", str(pa), "-i", str(pb), "-filter_complex", fc, "-frames:v", str(frames),
+             *enc, str(out)])
+        return
+    if cut.get("card"):
+        vf = "noise=alls=7:allf=t,vignette=PI/4,format=yuv420p"
+        run(["ffmpeg", "-y", "-f", "lavfi", "-i", f"color=c={NAVY}:s={w}x{h}:r={fps}", "-vf", vf,
+             "-frames:v", str(frames), *enc, str(out)])
+        return
     if cut.get("still"):
         src = prep_still(ROOT / cut["still"], tmp)
         dur = frames / fps
         z = cut.get("zoom", 0.10)
-        vf = (f"scale={w}:{h}:force_original_aspect_ratio=increase,crop={w}:{h},"
+        fx, fy = cut.get("focus_x", 0.5), cut.get("focus_y", 0.5)
+        vf = (f"scale={w}:{h}:force_original_aspect_ratio=increase,crop={w}:{h}:(iw-{w})*{fx}:(ih-{h})*{fy},"
               f"scale=w='{w}*(1+{z}*t/{dur:.3f})':h='{h}*(1+{z}*t/{dur:.3f})':eval=frame:force_divisible_by=2,"
               f"crop={w}:{h},fps={fps},setsar=1,format=yuv420p{dim}")
         run(["ffmpeg", "-y", "-loop", "1", "-framerate", str(fps), "-i", str(src), "-vf", vf,
@@ -78,10 +98,29 @@ def text_filters(edit, w, h):
     basis = w if edit.get("text_basis") == "w" else h
     bottom_y = edit.get("text_bottom_y", 0.86)
     fs = []
+
+    def draw(line, size, color, alpha, x, y, enable):
+        fs.append(
+            f"drawtext=fontfile='{FONT}':text='{esc(line)}':fontsize='{size}':fontcolor='{color}':"
+            f"alpha='{alpha}':x='{x}':y='{y}':borderw=3:bordercolor=black@0.55:shadowcolor=black@0.6:shadowx=4:shadowy=4:"
+            f"enable='{enable}'")
+
     for item in edit["text"]:
         base = item["size"] * basis
-        n = len(item["lines"])
         color = pal.get(item.get("color", "white"), "#FFFFFF")
+        t0, t1 = item["t0"], item["t1"]
+        if "count" in item:
+            c = item["count"]
+            steps = list(range(c["from"], c["to"] + 1))
+            span = (c["t1"] - c["t0"]) / max(1, len(steps) - 1)
+            y = f"h*{item.get('y0', 0.36)}"
+            for k, val in enumerate(steps):
+                a0 = t0 if k == 0 else c["t0"] + k * span
+                a1 = t1 if k == len(steps) - 1 else c["t0"] + (k + 1) * span
+                size = f"{base:.1f}*(1+0.06*max(0\\,1-(t-{a0:.3f})/0.12))"
+                draw(f"${val}B", size, color, "1", "(w-text_w)/2", y, f"between(t,{a0:.3f},{a1:.3f})")
+            continue
+        n = len(item["lines"])
         pos = item["pos"]
         for i, line in enumerate(item["lines"]):
             if pos == "bottom":
@@ -92,19 +131,17 @@ def text_filters(edit, w, h):
                 y = f"h*0.5-{n * 0.55 * base:.1f}+{i * 1.05 * base:.1f}"
             elif pos == "top":
                 y = f"h*{item.get('y0', 0.07)}+{i * 1.05 * base:.1f}"
+            elif pos == "at":
+                y = f"h*{item.get('y0', 0.5)}+{i * 1.05 * base:.1f}"
             elif pos == "upper":
                 y = "h*0.30"
             else:  # lower
                 y = "h*0.62"
             x = {"left": "w*0.05", "right": "w*0.65"}.get(pos, "(w-text_w)/2")
-            t0, t1 = item["t0"], item["t1"]
             # punch-in: 125% -> 100% over 0.22s, then fade out over the last 0.15s
             size = f"{base:.1f}*(1+0.25*max(0\\,1-(t-{t0})/0.22))"
             alpha = f"min(1\\,min((t-{t0})/0.08\\,({t1}-t)/0.15))"
-            fs.append(
-                f"drawtext=fontfile='{FONT}':text='{esc(line)}':fontsize='{size}':fontcolor='{color}':"
-                f"alpha='{alpha}':x='{x}':y='{y}':borderw=3:bordercolor=black@0.55:shadowcolor=black@0.6:shadowx=4:shadowy=4:"
-                f"enable='between(t,{t0},{t1})'")
+            draw(line, size, color, alpha, x, y, f"between(t,{t0},{t1})")
     return ",".join(fs)
 
 
