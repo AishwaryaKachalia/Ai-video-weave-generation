@@ -26,4 +26,5 @@ Pick the winner per shot by looking at skin, light and texture on a frame-zoom, 
 Add a final film pass in code (`scripts/film_post.py`): grain, gate weave, halation, slight chroma wobble.
 
 ## Build prompts
-`python3 scripts/imperfect_prompt.py "<scene>" --seed 3` prints a ready prompt.
+Single: `python3 scripts/imperfect_prompt.py "<scene>" --seed 3`
+Batch: `python3 scripts/imperfect_prompt.py --batch scenes.txt --out prompts.json` (one scene per line; every scene gets a different flaw set).
