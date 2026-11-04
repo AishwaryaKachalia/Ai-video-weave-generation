@@ -96,12 +96,15 @@ add(sub(36.7, 2.6, 1.6), FINAL, 1.2)
 add(kick(0.4), FINAL, 1.0)
 add(snare(0.35), FINAL, 0.8)
 
-for t0, t1 in [cfg["dip"]] if "dip" in cfg else []:
+for t0, t1 in ([cfg["dip"]] if "dip" in cfg else []) + cfg.get("dips", []):
     out[int(t0 * SR): int(t1 * SR)] *= 0.0
 if "ticks" in cfg:
     a, b, n = cfg["ticks"]
     for k in range(n):
         add(hat(0.06), a + (b - a) * k / max(1, n - 1), 0.9)
+for ht in cfg.get("hits", []):
+    add(kick(0.3), ht, 1.1)
+    add(sub(55.0, 0.25, 6.0), ht, 0.8)
 out = np.tanh(out * 0.9)
 out = out / max(1e-6, np.abs(out).max()) * 0.8
 pcm = (out * 32767).astype(np.int16)

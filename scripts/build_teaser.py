@@ -140,7 +140,7 @@ def text_filters(edit, w, h):
             x = {"left": "w*0.05", "right": "w*0.65"}.get(pos, "(w-text_w)/2")
             # punch-in: 125% -> 100% over 0.22s, then fade out over the last 0.15s
             size = f"{base:.1f}*(1+0.25*max(0\\,1-(t-{t0})/0.22))"
-            alpha = f"min(1\\,min((t-{t0})/0.08\\,({t1}-t)/0.15))"
+            alpha = "1" if item.get("hard") else f"min(1\\,min((t-{t0})/0.08\\,({t1}-t)/0.15))"
             draw(line, size, color, alpha, x, y, f"between(t,{t0},{t1})")
     return ",".join(fs)
 
