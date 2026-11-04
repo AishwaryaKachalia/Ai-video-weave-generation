@@ -102,7 +102,7 @@ def text_filters(edit, w, h):
     def draw(line, size, color, alpha, x, y, enable):
         fs.append(
             f"drawtext=fontfile='{FONT}':text='{esc(line)}':fontsize='{size}':fontcolor='{color}':"
-            f"alpha='{alpha}':x='{x}':y='{y}':borderw=3:bordercolor=black@0.55:shadowcolor=black@0.6:shadowx=4:shadowy=4:"
+            f"alpha='{alpha}':x='{x}':y='{y}':borderw=2:bordercolor=black@0.35:"
             f"enable='{enable}'")
 
     for item in edit["text"]:
@@ -137,11 +137,30 @@ def text_filters(edit, w, h):
                 y = "h*0.30"
             else:  # lower
                 y = "h*0.62"
-            x = {"left": "w*0.05", "right": "w*0.65"}.get(pos, "(w-text_w)/2")
-            # punch-in: 125% -> 100% over 0.22s, then fade out over the last 0.15s
-            size = f"{base:.1f}*(1+0.25*max(0\\,1-(t-{t0})/0.22))"
-            alpha = "1" if item.get("hard") else f"min(1\\,min((t-{t0})/0.08\\,({t1}-t)/0.15))"
-            draw(line, size, color, alpha, x, y, f"between(t,{t0},{t1})")
+            x0 = {"left": "w*0.05", "right": "w*0.65"}.get(pos, "(w-text_w)/2")
+            anim = item.get("anim") or ("cut" if item.get("hard") else "punch")
+            d0 = t0 + (i * 0.15 if anim == "lines" else 0)
+            age = f"(t-{d0:.3f})"
+            out = f"min(1\\,({t1}-t)/0.15)"
+            size, x, yy = f"{base:.1f}", x0, y
+            if anim == "cut":
+                alpha = "1"
+            elif anim == "punch":
+                size = f"{base:.1f}*(1+0.25*max(0\\,1-{age}/0.22))"
+                alpha = f"min(1\\,min({age}/0.08\\,{out}))"
+            elif anim in ("rise", "lines"):
+                yy = f"({y})+{0.065 * w:.1f}*pow(1-min(1\\,{age}/0.28)\\,3)"
+                alpha = f"min(1\\,min({age}/0.18\\,{out}))"
+            elif anim == "slam":
+                size = f"{base:.1f}*(1+1.1*max(0\\,1-{age}/0.12))"
+                x = f"({x0})+{0.013 * w:.1f}*sin({age}*90)*max(0\\,1-{age}/0.3)"
+                alpha = f"min(1\\,min({age}/0.04\\,{out}))"
+            elif anim == "glitch":
+                x = f"({x0})+{0.02 * w:.1f}*sin({age}*140)*lt({age}\\,0.22)"
+                alpha = f"min(1\\,min({age}/0.04\\,{out}))"
+            else:
+                alpha = "1"
+            draw(line, size, color, alpha, x, yy, f"between(t,{d0:.3f},{t1})")
     return ",".join(fs)
 
 
