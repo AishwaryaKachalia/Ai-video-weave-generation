@@ -14,7 +14,7 @@ Load before writing ANY still or video prompt. Goal: kill the "too clean" AI loo
 SURFACE: micro-scratches on glass, fingerprints smudged on a can, condensation beading unevenly, creased leather showing years of use, frayed hem, scuffed sneaker toe, chipped nail polish, sweat-darkened collar, wrinkled cotton, peeling sticker residue, rain-spotted metal, dust on a dark jacket.
 AIR: airborne dust drifting through light shafts, cigarette-free haze from a smoke machine, warm street dust, faint steam, tiny moths around a bulb, powder colour hanging in the air.
 HUMAN: flyaway hairs catching backlight, uneven skin with pores and a small shine on the forehead, one person mid-blink, laugh lines, a crooked smile, slightly mismatched jewellery, tired eyes after a long night, a stray bindi sticker, a shirt tag sticking out.
-LIGHT: late afternoon light bleeding from upper left, mixed warm tungsten and cool phone glow, one blown-out window, light spilling unevenly across half a face, shadows that go muddy brown, not black.
+LIGHT: late afternoon light bleeding from upper left, mixed warm tungsten and cool phone glow, one blown-out window, light spilling unevenly across half a face, shadows gone muddy brown instead of black.
 CAMERA: handheld drift, soft focus slipping off the nearest face, a thumb-smudge halo on the lens, film grain heavier in the shadows, slight light leak on one edge, horizon not quite level, motion smear on the fastest hand.
 
 ## Node chain (Weave)
