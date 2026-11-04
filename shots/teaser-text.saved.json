@@ -21,6 +21,7 @@
   ],
   "items": [
     {
+      "anim": "type",
       "color": "white",
       "id": "t1",
       "lines": [
@@ -32,6 +33,7 @@
       "t1": 3.1
     },
     {
+      "anim": "type",
       "color": "orange",
       "id": "t2",
       "lines": [
@@ -43,6 +45,7 @@
       "t1": 3.95
     },
     {
+      "anim": "fade",
       "color": "orange",
       "count": {
         "from": 11,
@@ -59,6 +62,7 @@
       "y0": 0.34
     },
     {
+      "anim": "fade",
       "color": "cream",
       "id": "t4",
       "lines": [
@@ -71,6 +75,7 @@
       "y0": 0.56
     },
     {
+      "anim": "fade",
       "color": "cream",
       "id": "t5",
       "lines": [
@@ -83,17 +88,7 @@
       "y0": 0.56
     },
     {
-      "color": "white",
-      "id": "t6",
-      "lines": [
-        "MEET HIFI."
-      ],
-      "pos": "center",
-      "size": 0.16,
-      "t0": 6.15,
-      "t1": 7.2
-    },
-    {
+      "anim": "type",
       "color": "white",
       "id": "t7",
       "lines": [
@@ -106,6 +101,7 @@
       "y0": null
     },
     {
+      "anim": "float",
       "color": "orange",
       "id": "t8",
       "lines": [
@@ -118,6 +114,7 @@
       "y0": null
     },
     {
+      "anim": "lines",
       "color": "white",
       "id": "t9",
       "lines": [
@@ -131,6 +128,7 @@
       "y0": null
     },
     {
+      "anim": "fade",
       "color": "orange",
       "id": "t10",
       "lines": [
@@ -142,6 +140,7 @@
       "t1": 20
     },
     {
+      "anim": "type",
       "color": "cream",
       "id": "t11",
       "lines": [
@@ -154,5 +153,5 @@
       "t1": 20
     }
   ],
-  "updatedAt": 1793778102001
+  "updatedAt": 1793780235821
 }
