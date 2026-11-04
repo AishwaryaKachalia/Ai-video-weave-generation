@@ -4,11 +4,11 @@ Single: python3 scripts/imperfect_prompt.py "scene text" [--seed N]
 Batch:  python3 scripts/imperfect_prompt.py --batch scenes.txt [--out prompts.json] [--seed N]
         scenes.txt = one scene per line (blank lines / # comments ignored).
 Each scene gets a different flaw set (seed+index); no flaw repeats until a bank runs out.
-Banks live in config/skills/imperfection-prompts.md."""
+Banks live in config/skills/hifi-prompt-craft.md."""
 import json, random, re, sys
 from pathlib import Path
 
-md = (Path(__file__).resolve().parent.parent / "config/skills/imperfection-prompts.md").read_text()
+md = (Path(__file__).resolve().parent.parent / "config/skills/hifi-prompt-craft.md").read_text()
 bank = {k: [s.strip().rstrip(".") for s in re.search(rf"^{k}: (.+)$", md, re.M).group(1).split(",")]
         for k in ("LIGHT", "SURFACE", "AIR", "HUMAN", "CAMERA")}
 args = sys.argv[1:]
