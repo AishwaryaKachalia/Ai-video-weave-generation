@@ -1,0 +1,158 @@
+{
+  "blanks": [],
+  "hook": [
+    "THE WORLD'S",
+    "NEXT BIG",
+    "BEER STORY"
+  ],
+  "hookWindows": [
+    [
+      0.4167,
+      0.6667
+    ],
+    [
+      1.0833,
+      1.3333
+    ],
+    [
+      1.75,
+      2
+    ]
+  ],
+  "items": [
+    {
+      "color": "white",
+      "id": "t1",
+      "lines": [
+        "IS BEING WRITTEN"
+      ],
+      "pos": "center",
+      "size": 0.12,
+      "t0": 2,
+      "t1": 3.1
+    },
+    {
+      "color": "orange",
+      "id": "t2",
+      "lines": [
+        "IN INDIA."
+      ],
+      "pos": "center",
+      "size": 0.225,
+      "t0": 3.1,
+      "t1": 3.95
+    },
+    {
+      "color": "orange",
+      "count": {
+        "from": 11,
+        "t0": 4.4,
+        "t1": 4.95,
+        "to": 23
+      },
+      "id": "t3",
+      "lines": [],
+      "pos": "at",
+      "size": 0.34,
+      "t0": 4,
+      "t1": 5.5,
+      "y0": 0.34
+    },
+    {
+      "color": "cream",
+      "id": "t4",
+      "lines": [
+        "TODAY."
+      ],
+      "pos": "at",
+      "size": 0.1,
+      "t0": 4,
+      "t1": 4.45,
+      "y0": 0.56
+    },
+    {
+      "color": "cream",
+      "id": "t5",
+      "lines": [
+        "BY 2035."
+      ],
+      "pos": "at",
+      "size": 0.14,
+      "t0": 4.95,
+      "t1": 5.5,
+      "y0": 0.56
+    },
+    {
+      "color": "white",
+      "id": "t6",
+      "lines": [
+        "MEET HIFI."
+      ],
+      "pos": "center",
+      "size": 0.16,
+      "t0": 6.15,
+      "t1": 7.2
+    },
+    {
+      "color": "white",
+      "id": "t7",
+      "lines": [
+        "A NEW GENERATION."
+      ],
+      "pos": "bottom",
+      "size": 0.1,
+      "t0": 9.1,
+      "t1": 10.95,
+      "y0": null
+    },
+    {
+      "color": "orange",
+      "id": "t8",
+      "lines": [
+        "A NEW BEER."
+      ],
+      "pos": "bottom",
+      "size": 0.14,
+      "t0": 11,
+      "t1": 12.9,
+      "y0": null
+    },
+    {
+      "color": "white",
+      "id": "t9",
+      "lines": [
+        "BUILT FOR",
+        "THE HIGHS."
+      ],
+      "pos": "bottom",
+      "size": 0.125,
+      "t0": 13.2,
+      "t1": 15.9,
+      "y0": null
+    },
+    {
+      "color": "orange",
+      "id": "t10",
+      "lines": [
+        "HIFI BEER CO."
+      ],
+      "pos": "center",
+      "size": 0.12,
+      "t0": 16.5,
+      "t1": 20
+    },
+    {
+      "color": "cream",
+      "id": "t11",
+      "lines": [
+        "INDIA'S NEXT",
+        "BIG BEER STORY."
+      ],
+      "pos": "bottom",
+      "size": 0.065,
+      "t0": 17,
+      "t1": 20
+    }
+  ],
+  "updatedAt": 1793778102001
+}

@@ -144,16 +144,16 @@ def text_filters(edit, w, h):
                 y = "h*0.62"
             x0 = {"left": "w*0.05", "right": "w*0.65"}.get(pos, "(w-text_w)/2")
             if anim == "type":
-                # typewriter: one character at a time from a fixed left edge, with a short-lived cursor
+                # typewriter: one character at a time from a fixed left edge (no cursor)
                 width = ImageFont.truetype(str(FONT), max(1, int(base))).getlength(line)
                 x = f"{w * 0.05:.1f}" if pos == "left" else f"{w * 0.65:.1f}" if pos == "right" else f"{(w - width) / 2:.1f}"
                 cps = 22.0
                 for k in range(1, len(line) + 1):
                     a0 = type_t + (k - 1) / cps
-                    a1 = min(t1, a0 + (0.3 if k == len(line) else 1 / cps))
-                    draw(line[:k] + "|", f"{base:.1f}", color, "1", x, y, f"between(t,{a0:.3f},{a1:.3f})")
-                done = type_t + (len(line) - 1) / cps + 0.3
-                draw(line, f"{base:.1f}", color, out, x, y, f"between(t,{done:.3f},{t1})")
+                    if k < len(line):
+                        draw(line[:k], f"{base:.1f}", color, "1", x, y, f"between(t,{a0:.3f},{min(t1, a0 + 1 / cps):.3f})")
+                    else:
+                        draw(line, f"{base:.1f}", color, out, x, y, f"between(t,{a0:.3f},{t1})")
                 type_t += len(line) / cps + 0.12
                 continue
             d0 = t0 + (i * 0.18 if anim == "lines" else 0)
