@@ -15,7 +15,7 @@ import subprocess
 import tempfile
 from pathlib import Path
 
-from PIL import Image
+from PIL import Image, ImageFont
 
 ROOT = Path(__file__).resolve().parent.parent
 FONT = ROOT / "assets/fonts/Anton-Regular.ttf"
@@ -122,6 +122,11 @@ def text_filters(edit, w, h):
             continue
         n = len(item["lines"])
         pos = item["pos"]
+        anim = item.get("anim") or ("cut" if item.get("hard") else "fade")
+        # the harsh motions are retired: map any old value to its gentle equivalent
+        anim = {"punch": "pop", "rise": "float", "slam": "pop", "glitch": "fade"}.get(anim, anim)
+        out = f"min(1\\,({t1}-t)/0.15)"
+        type_t = t0
         for i, line in enumerate(item["lines"]):
             if pos == "bottom":
                 y = f"h*{bottom_y}-{(n - i) * 1.02}*{base:.1f}+{base:.1f}*0.2"
@@ -138,26 +143,32 @@ def text_filters(edit, w, h):
             else:  # lower
                 y = "h*0.62"
             x0 = {"left": "w*0.05", "right": "w*0.65"}.get(pos, "(w-text_w)/2")
-            anim = item.get("anim") or ("cut" if item.get("hard") else "punch")
-            d0 = t0 + (i * 0.15 if anim == "lines" else 0)
+            if anim == "type":
+                # typewriter: one character at a time from a fixed left edge, with a short-lived cursor
+                width = ImageFont.truetype(str(FONT), max(1, int(base))).getlength(line)
+                x = f"{w * 0.05:.1f}" if pos == "left" else f"{w * 0.65:.1f}" if pos == "right" else f"{(w - width) / 2:.1f}"
+                cps = 22.0
+                for k in range(1, len(line) + 1):
+                    a0 = type_t + (k - 1) / cps
+                    a1 = min(t1, a0 + (0.3 if k == len(line) else 1 / cps))
+                    draw(line[:k] + "|", f"{base:.1f}", color, "1", x, y, f"between(t,{a0:.3f},{a1:.3f})")
+                done = type_t + (len(line) - 1) / cps + 0.3
+                draw(line, f"{base:.1f}", color, out, x, y, f"between(t,{done:.3f},{t1})")
+                type_t += len(line) / cps + 0.12
+                continue
+            d0 = t0 + (i * 0.18 if anim == "lines" else 0)
             age = f"(t-{d0:.3f})"
-            out = f"min(1\\,({t1}-t)/0.15)"
             size, x, yy = f"{base:.1f}", x0, y
             if anim == "cut":
                 alpha = "1"
-            elif anim == "punch":
-                size = f"{base:.1f}*(1+0.25*max(0\\,1-{age}/0.22))"
-                alpha = f"min(1\\,min({age}/0.08\\,{out}))"
-            elif anim in ("rise", "lines"):
-                yy = f"({y})+{0.065 * w:.1f}*pow(1-min(1\\,{age}/0.28)\\,3)"
-                alpha = f"min(1\\,min({age}/0.18\\,{out}))"
-            elif anim == "slam":
-                size = f"{base:.1f}*(1+1.1*max(0\\,1-{age}/0.12))"
-                x = f"({x0})+{0.013 * w:.1f}*sin({age}*90)*max(0\\,1-{age}/0.3)"
-                alpha = f"min(1\\,min({age}/0.04\\,{out}))"
-            elif anim == "glitch":
-                x = f"({x0})+{0.02 * w:.1f}*sin({age}*140)*lt({age}\\,0.22)"
-                alpha = f"min(1\\,min({age}/0.04\\,{out}))"
+            elif anim == "fade":
+                alpha = f"min(1\\,min({age}/0.35\\,{out}))"
+            elif anim in ("float", "lines"):
+                yy = f"({y})+{0.014 * w:.1f}*pow(1-min(1\\,{age}/0.45)\\,3)"
+                alpha = f"min(1\\,min({age}/0.3\\,{out}))"
+            elif anim == "pop":
+                size = f"{base:.1f}*(0.92+0.08*(1-pow(1-min(1\\,{age}/0.3)\\,3)))"
+                alpha = f"min(1\\,min({age}/0.2\\,{out}))"
             else:
                 alpha = "1"
             draw(line, size, color, alpha, x, yy, f"between(t,{d0:.3f},{t1})")
