@@ -48,3 +48,6 @@ The script only adds flaws; still write camera/motion lines by hand per the engi
 
 ## Sources
 Glif Kling 3 guide, Luma Video Models Field Guide, Luma "How to prompt Seedance 2.0", VEED/Artlist/localbanana Nano Banana realism guides.
+
+## Can realism (HARD RULE, from user feedback)
+A can must look photographed, not pasted on. Always: (1) cast its shadow in the SAME direction, length and softness as the other objects in the scene; (2) put highlights where other glass/brass objects catch light and add one hot-spot from the scene's actual light source (flash, window, diyas); (3) make it behave like metal: stretched vertical reflections of the surroundings, a bright specular band down the curve, darker far edge, shiny rim and tab reflecting the room, label ink slightly glossy not glowing; (4) ground it with a contact shadow and a wet ring; (5) match grain, softness for its depth and colour cast of the rest of the photo. Never pass the can as a flat layer; if a can looks fake, edit only the cans and say which light direction to follow.
