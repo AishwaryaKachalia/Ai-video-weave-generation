@@ -1,0 +1,138 @@
+{
+  "scene": "echovane-trial",
+  "reference": "Echovane_Trial_Video_Brief__Shot_List.pdf",
+  "shots": [
+    {
+      "id": "boot",
+      "order": 1,
+      "description": "Light blue texture, coral blob pulses into EchoAI, HUD label types in: Study: Halo Cold Brew Launch · Interview 214 / 400 · Mumbai · EN",
+      "camera": "static",
+      "prompt": "Echovane UI style: light blue textured background, thin black hairlines, small monospace labels, soft coral brain-textured blobs, bold black grotesk headlines, calm editorial JARVIS HUD, not neon. No em dashes. Coral blob pulses and resolves into EchoAI; HUD boots.",
+      "duration_s": 2,
+      "transition_in": "cut",
+      "tool": "Claude Design",
+      "audio": "Soft ping, low ambient bed"
+    },
+    {
+      "id": "camera-on",
+      "order": 2,
+      "description": "Riya's webcam fades in on her kitchen counter; label 'Riya - Participant'",
+      "camera": "static webcam",
+      "prompt": "Same Indian woman as the Riya reference image: 28, natural wavy shoulder-length hair, small gold hoops, oversized beige linen shirt, home kitchen counter, plants, kettle and open shelves softly blurred, morning window light from the left, slightly soft webcam focus, realistic skin texture. 16:9, no text. Chest-up, looking slightly off-lens at a laptop screen. Halo can not yet in hand.",
+      "duration_s": 1,
+      "transition_in": "crossfade",
+      "tool": "AI image + Claude Design",
+      "audio": "EchoAI VO Q1 starts: 'Tell me a little about how coffee fits into your day.'"
+    },
+    {
+      "id": "riya-answers-q1",
+      "order": 3,
+      "description": "Medium webcam frame, Halo can on counter; transcript streams right, Routine Analysis and loyalty tags pop, 'packaging catches my eye' highlights",
+      "camera": "static webcam",
+      "prompt": "Same Indian woman as the Riya reference image: 28, natural wavy shoulder-length hair, small gold hoops, oversized beige linen shirt, home kitchen counter, plants, kettle and open shelves softly blurred, morning window light from the left, slightly soft webcam focus, realistic skin texture. 16:9, no text. Halo can (slim matte sand-beige 250ml, black HALO wordmark) on the counter. Talking naturally, relaxed, slight laughs. Lip-synced to Clip A.",
+      "duration_s": 6,
+      "transition_in": "cut",
+      "tool": "Kling AI Avatar (reference image + Clip A audio) + Claude Design overlay",
+      "audio": "Riya Clip A, jump-cut: 'Oh, it's a whole thing honestly. Weekdays I don't really have time to make it, so I just pick up a can on the way to work. I used to be loyal to one brand, but lately I've been trying new ones, mostly because the packaging is just... really nice now, so I end up picking whatever catches my eye.'"
+    },
+    {
+      "id": "follow-up",
+      "order": 4,
+      "description": "'Generating follow-up...' then question types out with EchoAI waveform",
+      "camera": "static UI",
+      "prompt": "Echovane UI style: light blue textured background, thin black hairlines, small monospace labels, soft coral brain-textured blobs, bold black grotesk headlines, calm editorial JARVIS HUD, not neon. No em dashes. Generating follow-up text, then the question types out beside a calm waveform.",
+      "duration_s": 2,
+      "transition_in": "cut",
+      "tool": "Claude Design",
+      "audio": "EchoAI VO Q2: 'You said the packaging catches your eye. What was the last one that did?'"
+    },
+    {
+      "id": "riya-answers-q2",
+      "order": 5,
+      "description": "Same frame, she holds the Halo can: 'it was fine. Yeah. It was okay.'",
+      "camera": "static webcam",
+      "prompt": "Same Indian woman as the Riya reference image: 28, natural wavy shoulder-length hair, small gold hoops, oversized beige linen shirt, home kitchen counter, plants, kettle and open shelves softly blurred, morning window light from the left, slightly soft webcam focus, realistic skin texture. 16:9, no text. She holds the Halo can in her hand. Lip-synced to Clip B, ends on a hesitant 'It was okay.'",
+      "duration_s": 4,
+      "transition_in": "cut",
+      "tool": "Kling AI Avatar + Claude Design overlay",
+      "audio": "Riya Clip B: 'This new one, Halo, the matte can. It looked so clean, I picked it up immediately. And it was nice, I mean, the coffee was... it was fine. Yeah. It was okay.'"
+    },
+    {
+      "id": "hesitation-closeup",
+      "order": 6,
+      "description": "Slow push-in on her face, glance away, brow pinch; face mesh fades on, sentiment line dips, 'Mismatch' tag",
+      "camera": "slow push-in to close-up",
+      "prompt": "Slow subtle push-in to a close-up of her face. She pauses mid-sentence, eyes glance down and to the side, a faint brow pinch and a small tightening at one corner of her mouth, then a polite half smile. Natural micro-movements, realistic breathing, webcam look, morning light, no speech, no text.",
+      "duration_s": 2,
+      "transition_in": "cut",
+      "tool": "Veo 3.1 Image to Video (about 90 credits) + Claude Design overlay",
+      "audio": "Room tone, subtle UI tick"
+    },
+    {
+      "id": "probe",
+      "order": 7,
+      "description": "'Probing...' then EchoAI question on screen",
+      "camera": "static UI",
+      "prompt": "Echovane UI style: light blue textured background, thin black hairlines, small monospace labels, soft coral brain-textured blobs, bold black grotesk headlines, calm editorial JARVIS HUD, not neon. No em dashes. 'Probing...' then the question on screen.",
+      "duration_s": 1,
+      "transition_in": "cut",
+      "tool": "Claude Design",
+      "audio": "EchoAI VO: 'Fine, okay. Tell me more about that.'"
+    },
+    {
+      "id": "honest-answer",
+      "order": 8,
+      "description": "Riya relaxes: 'a little too sweet for me'; root cause and churn tags, 'too sweet' drops into notes",
+      "camera": "static webcam",
+      "prompt": "Same Indian woman as the Riya reference image: 28, natural wavy shoulder-length hair, small gold hoops, oversized beige linen shirt, home kitchen counter, plants, kettle and open shelves softly blurred, morning window light from the left, slightly soft webcam focus, realistic skin texture. 16:9, no text. She relaxes and speaks candidly, lip-synced to Clip C.",
+      "duration_s": 3,
+      "transition_in": "cut",
+      "tool": "Kling AI Avatar + Claude Design overlay",
+      "audio": "Riya Clip C: 'Hmm. It was just a little too sweet for me? I like my coffee stronger. I went back to Northbean the next morning.'"
+    },
+    {
+      "id": "zoom-out",
+      "order": 9,
+      "description": "Her window shrinks into a 400-interview grid; multilingual tags flicker on faces ('too sweet', 'pas assez sucré', 'add my own sugar')",
+      "camera": "zoom out",
+      "prompt": "Echovane UI style: light blue textured background, thin black hairlines, small monospace labels, soft coral brain-textured blobs, bold black grotesk headlines, calm editorial JARVIS HUD, not neon. No em dashes. Her webcam shrinks into a grid of 400 participant tiles with flickering multilingual tags.",
+      "duration_s": 3,
+      "transition_in": "cut",
+      "tool": "Claude Design + AI portrait stills (12 to 16, Prompt 5)",
+      "audio": "Music lifts"
+    },
+    {
+      "id": "clusters-report",
+      "order": 10,
+      "description": "Three coral blob clusters form (Taste split, Packaging pull, Home customisation); report builds page by page: 42% too sweet · 35% just right · 23% want it sweeter; 1 in 3 adjust coffee at home; 71% picked it up for the can design; Insight: Taste is personal. Test an unsweetened base with a sweetness add-on.",
+      "camera": "static UI",
+      "prompt": "Echovane UI style: light blue textured background, thin black hairlines, small monospace labels, soft coral brain-textured blobs, bold black grotesk headlines, calm editorial JARVIS HUD, not neon. No em dashes. Clusters then report doc building page by page.",
+      "duration_s": 2,
+      "transition_in": "cut",
+      "tool": "Claude Design",
+      "audio": "Soft UI ticks"
+    },
+    {
+      "id": "talk-to-data",
+      "order": 11,
+      "description": "Chat panel: 'Why aren't first-time buyers coming back?' Answer streams with stats and Riya's clip 'a little too sweet for me' as proof",
+      "camera": "slide up",
+      "prompt": "Echovane UI style: light blue textured background, thin black hairlines, small monospace labels, soft coral brain-textured blobs, bold black grotesk headlines, calm editorial JARVIS HUD, not neon. No em dashes. Chat panel slides up; reply streams with Riya's clip embedded.",
+      "duration_s": 3,
+      "transition_in": "cut",
+      "tool": "Claude Design + Clip C",
+      "audio": "Typing sounds, music"
+    },
+    {
+      "id": "end-card",
+      "order": 12,
+      "description": "'Honest answers, at scale.' Echovane wordmark, 'AI Moderated Consumer Research'. Small note: All stats are fictional, for the spec only.",
+      "camera": "static",
+      "prompt": "Echovane UI style: light blue textured background, thin black hairlines, small monospace labels, soft coral brain-textured blobs, bold black grotesk headlines, calm editorial JARVIS HUD, not neon. No em dashes. Centered end card.",
+      "duration_s": 2,
+      "transition_in": "fade_from_black",
+      "tool": "Claude Design",
+      "audio": "Music out"
+    }
+  ]
+}
